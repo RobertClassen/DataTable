@@ -30,6 +30,18 @@ namespace DataTypes.Core
 
 		public int Capacity
 		{ get { return Width * Height; } }
+
+		/// <summary>
+		/// The maximum valid column index.
+		/// </summary>
+		public int XMax
+		{ get { return Width - Int.One; } }
+
+		/// <summary>
+		/// The maximum valid row index.
+		/// </summary>
+		public int YMax
+		{ get { return Height - Int.One; } }
 		#endregion
 
 		#region Constructors

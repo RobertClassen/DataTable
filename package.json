@@ -1,0 +1,15 @@
+{
+  "name": "com.robert_classen.datatable",
+  "version": "1.0.0",
+  "displayName": "DataTable",
+  "keywords": [
+    "DataTable",
+    "SpreadSheet"
+  ],
+  "author": {
+    "name": "Robert Classen",
+    "email": "Robert.Classen.dev@gmail.com",
+    "url": "https://github.com/RobertClassen"
+  },
+  "type": "library"
+}

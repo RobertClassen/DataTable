@@ -31,11 +31,17 @@ namespace DataTypes
 			set { cells[x][y] = value; }
 		}
 
+		/// <summary>
+		/// The number of columns.
+		/// </summary>
 		public override int Width
-		{ get { return cells != null ? cells.Length : Int.Zero; } }
+		{ get { return cells != null ? cells.Length : XMin; } }
 
+		/// <summary>
+		/// The number of rows.
+		/// </summary>
 		public override int Height
-		{ get { return cells != null && cells[Int.Zero] != null ? cells[Int.Zero].Length : Int.Zero; } }
+		{ get { return cells != null && cells[XMin] != null ? cells[XMin].Length : YMin; } }
 		#endregion
 
 		#region Constructors
@@ -85,15 +91,34 @@ namespace DataTypes
 			return destination;
 		}
 
+		/// <summary>
+		/// Copies the contained elements into a new linear <c>T[]</c>.
+		/// </summary>
+		/// 
+		/// <remarks>
+		/// Iterates the <see cref ="cells"/> row by row (left to right, bottom to top).
+		/// 
+		/// Before:<br/>
+		/// <c>
+		/// ► 0 1 2 3 4<br/>
+		/// ► 5 6 7 8 9<br/>
+		/// ► A B C D E<br/>
+		/// </c>
+		/// 
+		/// After:<br/>
+		/// <c>
+		/// ► 0 1 2 3 4 5 6 7 8 9 A B C D E<br/>
+		/// </c>
+		/// </remarks>
 		public T[] ToArray()
 		{
-			int width = Width;
-			int height = Height;
+			int xMax = XMax;
+			int yMax = YMax;
 			T[] array = new T[Capacity];
 			int i = Int.Zero;
-			for(int y = Int.Zero; y < height; y++)
+			for(int y = YMin; y <= yMax; y++)
 			{
-				for(int x = Int.Zero; x < width; x++)
+				for(int x = XMin; x <= xMax; x++)
 				{
 					array[i++] = cells[x][y];
 				}
@@ -101,14 +126,33 @@ namespace DataTypes
 			return array;
 		}
 
+		/// <summary>
+		/// Copies the contained elements into a new linear <c>List&lt;T&gt;</c>.
+		/// </summary>
+		/// 
+		/// <remarks>
+		/// Iterates the <see cref ="cells"/> row by row (left to right, bottom to top).
+		/// 
+		/// Before:<br/>
+		/// <c>
+		/// ► 0 1 2 3 4<br/>
+		/// ► 5 6 7 8 9<br/>
+		/// ► A B C D E<br/>
+		/// </c>
+		/// 
+		/// After:<br/>
+		/// <c>
+		/// ► 0 1 2 3 4 5 6 7 8 9 A B C D E<br/>
+		/// </c>
+		/// </remarks>
 		public List<T> ToList()
 		{
-			int width = Width;
-			int height = Height;
+			int xMax = XMax;
+			int yMax = YMax;
 			List<T> list = new List<T>(Capacity);
-			for(int y = Int.Zero; y < height; y++)
+			for(int y = YMin; y <= yMax; y++)
 			{
-				for(int x = Int.Zero; x < width; x++)
+				for(int x = XMin; x <= xMax; x++)
 				{
 					list.Add(cells[x][y]);
 				}

@@ -25,8 +25,14 @@ namespace DataTypes.Core
 		#endregion
 
 		#region Properties
+		/// <summary>
+		/// The number of columns.
+		/// </summary>
 		public abstract int Width { get; }
 
+		/// <summary>
+		/// The number of rows.
+		/// </summary>
 		public abstract int Height { get; }
 
 		public int Capacity

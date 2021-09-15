@@ -6,44 +6,7 @@ namespace DataTypes
 	using System.Extensions;
 	using System.Utilities;
 
-	public abstract class DataTable
-	{
-		#region Fields
-
-		#endregion
-
-		#region Properties
-		public abstract int Width { get; }
-
-		public abstract int Height { get; }
-
-		public int Capacity
-		{ get { return Width * Height; } }
-		#endregion
-
-		#region Constructors
-
-		#endregion
-
-		#region Methods
-		public bool IsClampedX(int x)
-		{
-			return x.IsClamped(Int.Zero, Width - Int.One);
-		}
-
-		public bool IsClampedY(int y)
-		{
-			return y.IsClamped(Int.Zero, Height - Int.One);
-		}
-
-		public bool IsClamped(int x, int y)
-		{
-			return IsClampedX(x) && IsClampedY(y);
-		}
-		#endregion
-	}
-
-	public class DataTable<T> : DataTable
+	public partial class DataTable<T> : Core.DataTable
 	{
 		#region Fields
 		protected T[][] cells = null;

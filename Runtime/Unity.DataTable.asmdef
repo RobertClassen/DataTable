@@ -1,0 +1,16 @@
+{
+    "name": "Unity.DataTable",
+    "rootNamespace": "DataTypes",
+    "references": [
+        "Unity.ExtensionsAndUtilities"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

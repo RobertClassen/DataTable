@@ -8,6 +8,11 @@ namespace DataTypes
 
 	public partial class DataTable<T> : Core.DataTable
 	{
+		#region Constants
+		private const bool reverseXDefault = false;
+		private const bool reverseYDefault = false;
+		#endregion
+
 		#region Fields
 		protected T[][] cells = null;
 		#endregion

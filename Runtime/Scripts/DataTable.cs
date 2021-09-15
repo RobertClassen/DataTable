@@ -4,11 +4,15 @@ namespace DataTypes
 	using System.Collections;
 	using System.Collections.Generic;
 	using System.Extensions;
+	using System.Linq;
 	using System.Utilities;
+	using String = System.Utilities.String;
 
 	public partial class DataTable<T> : Core.DataTable
 	{
 		#region Constants
+		private const string ColumnSeparator = String.Tab;
+		private const string RowSeparator = String.LineFeed;
 		private const bool reverseXDefault = false;
 		private const bool reverseYDefault = false;
 		#endregion
@@ -110,6 +114,25 @@ namespace DataTypes
 				}
 			}
 			return list;
+		}
+
+		/// <summary>
+		/// Returns a <c>System.String</c> that represents the current <see cref="DataTable&lt;T&gt;"/>.
+		/// </summary>
+		public override string ToString()
+		{
+			return ToString(ColumnSeparator);
+		}
+
+		/// <summary>
+		/// Returns a <c>System.String</c> that represents the current <see cref="DataTable&lt;T&gt;"/>.
+		/// </summary>
+		/// <param name="columnSeparator">Default is <see cref ="ColumnSeparator"/>.</param>
+		public string ToString(string columnSeparator)
+		{
+			return string.Join(RowSeparator, EnumerateRows()
+				.Select(row => string.Join(columnSeparator, row
+					.Select(cell => !cell.IsNullOrDefault() ? cell.ToString() : default(T).ToString()))));
 		}
 		#endregion
 	}

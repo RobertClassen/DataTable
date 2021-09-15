@@ -3,7 +3,8 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using UnityEngine;
+	using System.Extensions;
+	using System.Utilities;
 
 	public partial class DataTable<T>
 	{

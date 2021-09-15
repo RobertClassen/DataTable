@@ -1,5 +1,7 @@
 # DataTable for Unity
 
+A utility library to hold data in a 2d array, like a spreadsheet.
+
 ## Compatibility
 
 Tested with:

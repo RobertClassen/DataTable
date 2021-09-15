@@ -11,5 +11,6 @@
     "email": "Robert.Classen.dev@gmail.com",
     "url": "https://github.com/RobertClassen"
   },
-  "type": "library"
+  "type": "library",
+  "description": "A utility library to hold data in a 2d array, like a spreadsheet."
 }

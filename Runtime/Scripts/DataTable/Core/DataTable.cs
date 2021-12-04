@@ -5,7 +5,7 @@ namespace DataTypes.Core
 	using System.Collections.Generic;
 	using NumericMath;
 
-	public abstract class DataTable
+	public abstract class DataTable : IEquatable<DataTable>
 	{
 		#region Constants
 		private const string ArgumentOutOfRange = "Specified argument was out of the range of valid values.";
@@ -56,6 +56,11 @@ namespace DataTypes.Core
 		#endregion
 
 		#region Methods
+		public bool Equals(DataTable other)
+		{
+			return other != null && (ReferenceEquals(this, other) || Width == other.Width && Height == other.Height);
+		}
+
 		/// <summary>
 		/// Checks if the specified <c>x</c> is a valid column index.
 		/// </summary>

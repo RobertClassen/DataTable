@@ -5,7 +5,7 @@ namespace DataTypes
 	using System.Collections.Generic;
 	using NumericMath;
 
-	public partial class DataTable<T> : Core.DataTable
+	public partial class DataTable<T> : Core.DataTable, IEquatable<DataTable<T>>
 	{
 		#region Constants
 		private const string ColumnSeparator = "\t";
@@ -67,6 +67,29 @@ namespace DataTypes
 					cells[x][y] = default(T);
 				}
 			}
+		}
+
+		public bool Equals(DataTable<T> other)
+		{
+			if(!base.Equals(other))
+			{
+				return false;
+			}
+
+			int xMax = XMax;
+			int yMax = YMax;
+			EqualityComparer<T> equalityComparer = EqualityComparer<T>.Default;
+			for(int y = YMin; y <= yMax; y++)
+			{
+				for(int x = XMin; x <= xMax; x++)
+				{
+					if(!equalityComparer.Equals(cells[x][y], other.cells[x][y]))
+					{
+						return false;
+					}
+				}
+			}
+			return true;
 		}
 
 		public void Resize(int width, int height)

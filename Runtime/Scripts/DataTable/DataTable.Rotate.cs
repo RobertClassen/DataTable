@@ -53,7 +53,7 @@ namespace DataTypes
 			{
 				for(int x = XMin; x <= xMax; x++)
 				{
-					flipped.cells[x][y] = cells[y][x];
+					flipped.cells[y][x] = cells[x][y];
 				}
 			}
 			cells = flipped.cells;

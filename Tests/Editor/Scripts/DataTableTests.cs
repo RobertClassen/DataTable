@@ -5,66 +5,47 @@ namespace DataTypes
 	using System.Collections.Generic;
 	using NUnit.Framework;
 
-	public class DataTableTests
+	public partial class DataTableTests
 	{
-		[Test]
-		public void ConstructorWorks()
+		private static readonly char[] hex = {
+			'0', '1', '2', '3', '4', 
+			'5', '6', '7', '8', '9', 
+			'A', 'B', 'C', 'D', 'E',
+		};
+
+		private static DataTable<string> Create(int width, params string[] rows)
 		{
-			const int width = 5;
-			const int height = 3;
-			DataTable<int> table = new DataTable<int>(width, height);
-
-			Assert.NotNull(table);
-			Assert.AreEqual(width, table.Width);
-			Assert.AreEqual(height, table.Height);
-			Assert.AreEqual(width * height, table.Capacity);
-		}
-
-		[Test]
-		public void AssigningWorks()
-		{
-			const int width = 5;
-			const int height = 3;
-			DataTable<int> table = new DataTable<int>(width, height);
-
-			int i = 0;
+			int height = rows.Length;
+			DataTable<string> table = new DataTable<string>(width, height);
+			char[] separator = { ' ' };
 			for(int y = 0; y < table.Height; y++)
 			{
+				string[] cells = rows[y].Split(separator, width);
 				for(int x = 0; x < table.Width; x++)
 				{
-					Assert.DoesNotThrow(() => table[x, y] = i++);
+					table[x, y] = cells[x];
 				}
 			}
+			return table;
+		}
 
-			const string expected = "0\t1\t2\t3\t4\n5\t6\t7\t8\t9\n10\t11\t12\t13\t14";
-			Assert.AreEqual(expected, table.ToString());
+		private static DataTable<string> CreateDefault()
+		{
+			return Create(5, "0 1 2 3 4", "5 6 7 8 9", "A B C D E");
 		}
 
 		[Test]
-		public void EqualsWorks()
+		public void Create_Works()
 		{
-			const int width = 5;
-			const int height = 3;
-			DataTable<int> table0 = new DataTable<int>(width, height);
-			DataTable<int> table1 = new DataTable<int>(width, height);
+			DataTable<string> table = CreateDefault();
 
-			Assert.IsTrue(table0.Equals(table1));
+			Assert.AreEqual(15, table.Capacity);
 
-			table0[0, 0] = 10;
-			Assert.IsFalse(table0.Equals(table1));
-
-			table1[0, 0] = 10;
-			Assert.IsTrue(table0.Equals(table1));
-		}
-
-		[Test]
-		public void IndexOutOfRangeThrows()
-		{
-			const int width = 5;
-			const int height = 3;
-			DataTable<int> table = new DataTable<int>(width, height);
-
-			Assert.Throws<IndexOutOfRangeException>(() => table[width, height] = 10);
+			const string expectedWithSpace = 
+				"0 1 2 3 4" + "\n" +
+				"5 6 7 8 9" + "\n" +
+				"A B C D E";
+			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
 		}
 	}
 }

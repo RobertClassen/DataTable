@@ -3,23 +3,9 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using NumericMath;
 
 	public partial class DataTable<T>
 	{
-		#region Fields
-		
-		#endregion
-
-		#region Properties
-		
-		#endregion
-
-		#region Constructors
-		
-		#endregion
-
-		#region Methods
 		/// <summary>
 		/// Iterates the entire column <c>x</c>.
 		/// </summary>
@@ -112,6 +98,5 @@ namespace DataTypes
 				}
 			}
 		}
-		#endregion
 	}
 }

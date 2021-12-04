@@ -7,19 +7,6 @@ namespace DataTypes
 
 	public partial class DataTable<T>
 	{
-		#region Fields
-		
-		#endregion
-
-		#region Properties
-		
-		#endregion
-
-		#region Constructors
-		
-		#endregion
-
-		#region Methods
 		/// <summary>
 		/// Reverses the <see cref ="cells"/>, effectively rotating them by 180°, 
 		/// keeping their <see cref ="Width"/> and <see cref ="Height"/>.
@@ -219,6 +206,5 @@ namespace DataTypes
 				}
 			}
 		}
-		#endregion
 	}
 }

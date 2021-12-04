@@ -3,23 +3,9 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using NumericMath;
 
 	public partial class DataTable<T>
 	{
-		#region Fields
-		
-		#endregion
-
-		#region Properties
-		
-		#endregion
-
-		#region Constructors
-		
-		#endregion
-
-		#region Methods
 		/// <summary>
 		/// Swaps the values of two individual cells.
 		/// </summary>
@@ -211,6 +197,5 @@ namespace DataTypes
 				cells[x][y1] = temp;
 			}
 		}
-		#endregion
 	}
 }

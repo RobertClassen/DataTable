@@ -3,23 +3,9 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using NumericMath;
 
 	public partial class DataTable<T>
 	{
-		#region Fields
-		
-		#endregion
-
-		#region Properties
-		
-		#endregion
-
-		#region Constructors
-		
-		#endregion
-
-		#region Methods
 		/// <summary>
 		/// Rotates the <see cref ="cells"/> counterclockwise, 
 		/// swapping their <see cref ="Width"/> and <see cref ="Height"/>.
@@ -129,6 +115,5 @@ namespace DataTypes
 		{
 			Reverse();
 		}
-		#endregion
 	}
 }

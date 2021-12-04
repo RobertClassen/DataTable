@@ -8,19 +8,6 @@ namespace DataTypes
 
 	public partial class DataTable<T>
 	{
-		#region Fields
-		
-		#endregion
-
-		#region Properties
-		
-		#endregion
-
-		#region Constructors
-		
-		#endregion
-
-		#region Methods
 		/// <summary>
 		/// Copies the contained elements into a new linear <c>T[]</c>.
 		/// </summary>
@@ -113,6 +100,5 @@ namespace DataTypes
 		{
 			return EqualityComparer<T>.Default.Equals(cell, default(T));
 		}
-		#endregion
 	}
 }

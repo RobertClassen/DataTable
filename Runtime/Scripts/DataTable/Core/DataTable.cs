@@ -3,8 +3,7 @@ namespace DataTypes.Core
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using System.Extensions;
-	using System.Utilities;
+	using NumericMath;
 
 	public abstract class DataTable
 	{
@@ -18,6 +17,7 @@ namespace DataTypes.Core
 		/// The minimum valid row index.
 		/// </summary>
 		public const int YMin = Int.Zero;
+		protected const int Two = Int.One + Int.One;
 		#endregion
 
 		#region Fields

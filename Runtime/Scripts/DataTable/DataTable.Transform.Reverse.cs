@@ -3,8 +3,7 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using System.Extensions;
-	using System.Utilities;
+	using NumericMath;
 
 	public partial class DataTable<T>
 	{
@@ -47,7 +46,7 @@ namespace DataTypes
 		{
 			int xMax = XMax;
 			int yMax = YMax;
-			int halfCapacity = Capacity / Int.Two;
+			int halfCapacity = Capacity / Two;
 			int count = Int.Zero;
 
 			T temp;
@@ -95,7 +94,7 @@ namespace DataTypes
 			VerifyX(x);
 
 			int yMax = YMax;
-			int yHalf = yMax / Int.Two;
+			int yHalf = yMax / Two;
 
 			T temp;
 			for(int y = YMin; y <= yHalf; y++)
@@ -132,7 +131,7 @@ namespace DataTypes
 		{
 			int xMax = XMax;
 			int yMax = YMax;
-			int yHalf = yMax / Int.Two;
+			int yHalf = yMax / Two;
 
 			T temp;
 			for(int y = YMin; y <= yHalf; y++)
@@ -171,7 +170,7 @@ namespace DataTypes
 			VerifyY(y);
 
 			int xMax = XMax;
-			int xHalf = xMax / Int.Two;
+			int xHalf = xMax / Two;
 
 			T temp;
 			for(int x = XMin; x <= xHalf; x++)
@@ -206,7 +205,7 @@ namespace DataTypes
 		{
 			int xMax = XMax;
 			int yMax = YMax;
-			int xHalf = xMax / Int.Two;
+			int xHalf = xMax / Two;
 
 			T temp;
 			for(int x = XMin; x <= xHalf; x++)

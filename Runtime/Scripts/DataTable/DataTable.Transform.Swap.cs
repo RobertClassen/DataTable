@@ -3,8 +3,7 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using System.Extensions;
-	using System.Utilities;
+	using NumericMath;
 
 	public partial class DataTable<T>
 	{

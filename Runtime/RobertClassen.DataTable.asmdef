@@ -1,8 +1,8 @@
 {
-    "name": "Unity.DataTable",
+    "name": "RobertClassen.DataTable",
     "rootNamespace": "DataTypes",
     "references": [
-        "Unity.ExtensionsAndUtilities"
+        "GUID:0bff87564b8ee6d419b462caa780b329"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

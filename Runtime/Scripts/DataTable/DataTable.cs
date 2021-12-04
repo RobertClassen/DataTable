@@ -3,16 +3,14 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using System.Extensions;
 	using System.Linq;
-	using System.Utilities;
-	using String = System.Utilities.String;
+	using NumericMath;
 
 	public partial class DataTable<T> : Core.DataTable
 	{
 		#region Constants
-		private const string ColumnSeparator = String.Tab;
-		private const string RowSeparator = String.LineFeed;
+		private const string ColumnSeparator = "\t";
+		private const string RowSeparator = "\n";
 		private const bool reverseXDefault = false;
 		private const bool reverseYDefault = false;
 		#endregion
@@ -192,7 +190,12 @@ namespace DataTypes
 		{
 			return string.Join(RowSeparator, EnumerateRows()
 				.Select(row => string.Join(columnSeparator, row
-					.Select(cell => !cell.IsNullOrDefault() ? cell.ToString() : default(T).ToString()))));
+					.Select(cell => !IsNullOrDefault(cell) ? cell.ToString() : default(T).ToString()))));
+		}
+
+		private static bool IsNullOrDefault(T cell)
+		{
+			return EqualityComparer<T>.Default.Equals(cell, default(T));
 		}
 		#endregion
 	}

@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTable<T>
 	{
 		/// <summary>
-		/// Reverses the <see cref ="cells"/>, effectively rotating them by 180°, 
+		/// Reverses the <c>cells</c>, effectively rotating them by 180°, 
 		/// keeping their <see cref ="Width"/> and <see cref ="Height"/>.
 		/// </summary>
 		/// 
@@ -43,9 +43,9 @@ namespace DataTypes
 				for(int x = XMin; x <= xMax; x++)
 				{
 					int xReverse = xMax - x;
-					temp = cells[x][y];
-					cells[x][y] = cells[xReverse][yReverse];
-					cells[xReverse][yReverse] = temp;
+					temp = rows[y][x];
+					rows[y][x] = rows[yReverse][xReverse];
+					rows[yReverse][xReverse] = temp;
 
 					if(++count >= halfCapacity)
 					{
@@ -87,9 +87,9 @@ namespace DataTypes
 			for(int y = YMin; y <= yHalf; y++)
 			{
 				int yReverse = yMax - y;
-				temp = cells[x][y];
-				cells[x][y] = cells[x][yReverse];
-				cells[x][yReverse] = temp;
+				temp = rows[y][x];
+				rows[y][x] = rows[yReverse][x];
+				rows[yReverse][x] = temp;
 			}
 		}
 
@@ -126,9 +126,9 @@ namespace DataTypes
 				int yReverse = yMax - y;
 				for(int x = XMin; x <= xMax; x++)
 				{
-					temp = cells[x][y];
-					cells[x][y] = cells[x][yReverse];
-					cells[x][yReverse] = temp;
+					temp = rows[y][x];
+					rows[y][x] = rows[yReverse][x];
+					rows[yReverse][x] = temp;
 				}
 			}
 		}
@@ -163,9 +163,9 @@ namespace DataTypes
 			for(int x = XMin; x <= xHalf; x++)
 			{
 				int xReverse = xMax - x;
-				temp = cells[x][y];
-				cells[x][y] = cells[xReverse][y];
-				cells[xReverse][y] = temp;
+				temp = rows[y][x];
+				rows[y][x] = rows[y][xReverse];
+				rows[y][xReverse] = temp;
 			}
 		}
 
@@ -200,9 +200,9 @@ namespace DataTypes
 				int xReverse = xMax - x;
 				for(int y = YMin; y <= yMax; y++)
 				{
-					temp = cells[x][y];
-					cells[x][y] = cells[xReverse][y];
-					cells[xReverse][y] = temp;
+					temp = rows[y][x];
+					rows[y][x] = rows[y][xReverse];
+					rows[y][xReverse] = temp;
 				}
 			}
 		}

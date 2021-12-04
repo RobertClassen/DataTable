@@ -39,10 +39,10 @@ namespace DataTypes
 			{
 				for(int x = XMin; x <= xMax; x++)
 				{
-					flipped.cells[y][x] = cells[x][y];
+					flipped.rows[x][y] = rows[y][x];
 				}
 			}
-			cells = flipped.cells;
+			rows = flipped.rows;
 		}
 	}
 }

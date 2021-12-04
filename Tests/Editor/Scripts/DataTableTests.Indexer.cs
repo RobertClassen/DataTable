@@ -41,13 +41,13 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void IndexOutOfRange_Throws()
+		public void ArgumentOutOfRange_Throws()
 		{
 			const int width = 5;
 			const int height = 3;
 			DataTable<char> table = new DataTable<char>(width, height);
 
-			Assert.Throws<IndexOutOfRangeException>(() => table[width, height] = hex[10]);
+			Assert.Throws<ArgumentOutOfRangeException>(() => table[width, height] = hex[10]);
 		}
 	}
 }

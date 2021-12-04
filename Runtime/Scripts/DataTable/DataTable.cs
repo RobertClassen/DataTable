@@ -4,6 +4,7 @@ namespace DataTypes
 	using System.Collections;
 	using System.Collections.Generic;
 	using NumericMath;
+	using UnityEngine;
 
 	public partial class DataTable<T> : Core.DataTable, IEquatable<DataTable<T>>
 	{
@@ -15,39 +16,40 @@ namespace DataTypes
 		#endregion
 
 		#region Fields
-		protected T[][] cells = null;
+		[SerializeField]
+		protected List<Row> rows = new List<Row>();
 		#endregion
 
 		#region Properties
-		public T[][] Cells
-		{ get { return cells; } }
+		public List<Row> Rows
+		{ get { return rows; } }
 
 		public T this[int x, int y]
 		{
-			get { return cells[x][y]; }
-			set { cells[x][y] = value; }
+			get { return rows[y][x]; }
+			set { rows[y][x] = value; }
 		}
 
 		/// <summary>
 		/// The number of columns.
 		/// </summary>
 		public override int Width
-		{ get { return cells != null ? cells.Length : XMin; } }
+		{ get { return rows != null && rows[YMin] != null ? rows[YMin].Width : XMin; } }
 
 		/// <summary>
 		/// The number of rows.
 		/// </summary>
 		public override int Height
-		{ get { return cells != null && cells[XMin] != null ? cells[XMin].Length : YMin; } }
+		{ get { return rows != null ? rows.Count : YMin; } }
 		#endregion
 
 		#region Constructors
 		public DataTable(int width, int height)
 		{
-			cells = new T[width][];
-			for(int x = Int.Zero; x < width; x++)
+			rows = new List<Row>(new Row[height]);
+			for(int y = YMin; y <= YMax; y++)
 			{
-				cells[x] = new T[height];
+				rows[y] = new Row(width);
 			}
 		}
 		#endregion

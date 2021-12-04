@@ -17,7 +17,7 @@ namespace DataTypes
 			{
 				for(int x = Int.Zero; x < newWidth; x++)
 				{
-					destination.cells[x][y] = x < width && y < height ? cells[x][y] : default(T);
+					destination.rows[y][x] = x < width && y < height ? rows[y][x] : default(T);
 				}
 			}
 			return destination;

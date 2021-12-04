@@ -17,7 +17,7 @@ namespace DataTypes
 			{
 				for(int x = XMin; x <= xMax; x++)
 				{
-					cells[x][y] = default(T);
+					rows[y][x] = default(T);
 				}
 			}
 		}

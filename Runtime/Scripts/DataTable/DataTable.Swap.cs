@@ -41,9 +41,9 @@ namespace DataTypes
 		/// </remarks>
 		public void Swap(int x0, int y0, int x1, int y1)
 		{
-			T temp = cells[x0][y0];
-			cells[x0][y0] = cells[x1][y1];
-			cells[x1][y1] = temp;
+			T temp = rows[y0][x0];
+			rows[y0][x0] = rows[y1][x1];
+			rows[y1][x1] = temp;
 		}
 
 		/// <summary>
@@ -117,9 +117,9 @@ namespace DataTypes
 			T temp;
 			for(int y = yMin; y <= yMax; y++)
 			{
-				temp = cells[x0][y];
-				cells[x0][y] = cells[x1][y];
-				cells[x1][y] = temp;
+				temp = rows[y][x0];
+				rows[y][x0] = rows[y][x1];
+				rows[y][x1] = temp;
 			}
 		}
 
@@ -192,9 +192,9 @@ namespace DataTypes
 			T temp;
 			for(int x = xMin; x <= xMax; x++)
 			{
-				temp = cells[x][y0];
-				cells[x][y0] = cells[x][y1];
-				cells[x][y1] = temp;
+				temp = rows[y0][x];
+				rows[y0][x] = rows[y1][x];
+				rows[y1][x] = temp;
 			}
 		}
 	}

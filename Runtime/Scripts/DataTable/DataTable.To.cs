@@ -37,7 +37,7 @@ namespace DataTypes
 			{
 				for(int x = XMin; x <= xMax; x++)
 				{
-					array[i++] = cells[x][y];
+					array[i++] = rows[y][x];
 				}
 			}
 			return array;
@@ -71,7 +71,7 @@ namespace DataTypes
 			{
 				for(int x = XMin; x <= xMax; x++)
 				{
-					list.Add(cells[x][y]);
+					list.Add(rows[y][x]);
 				}
 			}
 			return list;

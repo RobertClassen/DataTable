@@ -20,7 +20,7 @@ namespace DataTypes
 			{
 				for(int x = XMin; x <= xMax; x++)
 				{
-					if(!equalityComparer.Equals(cells[x][y], other.cells[x][y]))
+					if(!equalityComparer.Equals(rows[y][x], other.rows[y][x]))
 					{
 						return false;
 					}

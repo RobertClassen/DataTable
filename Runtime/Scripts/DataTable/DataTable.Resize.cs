@@ -23,7 +23,7 @@ namespace DataTypes
 				return;
 			}
 
-			cells = CopyTo(new DataTable<T>(width, height)).cells;
+			rows = CopyTo(new DataTable<T>(width, height)).rows;
 		}
 	}
 }

@@ -7,7 +7,7 @@ namespace DataTypes
 	public partial class DataTable<T>
 	{
 		/// <summary>
-		/// Rotates the <see cref ="cells"/> counterclockwise, 
+		/// Rotates the <c>cells</c> counterclockwise, 
 		/// swapping their <see cref ="Width"/> and <see cref ="Height"/>.
 		/// </summary>
 		/// 
@@ -41,14 +41,14 @@ namespace DataTypes
 				int newX = xMax - x;
 				for(int y = YMin; y <= yMax; y++)
 				{
-					rotated.cells[y][x] = cells[newX][y];
+					rotated.rows[x][y] = rows[y][newX];
 				}
 			}
-			cells = rotated.cells;
+			rows = rotated.rows;
 		}
 
 		/// <summary>
-		/// Rotates the <see cref ="cells"/> clockwise, 
+		/// Rotates the <c>cells</c> clockwise, 
 		/// swapping their <see cref ="Width"/> and <see cref ="Height"/>.
 		/// </summary>
 		/// 
@@ -82,14 +82,14 @@ namespace DataTypes
 				int newY = yMax - y;
 				for(int x = XMin; x <= xMax; x++)
 				{
-					rotated.cells[y][x] = cells[x][newY];
+					rotated.rows[x][y] = rows[newY][x];
 				}
 			}
-			cells = rotated.cells;
+			rows = rotated.rows;
 		}
 
 		/// <summary>
-		/// Rotates the <see cref ="cells"/> twice, 
+		/// Rotates the <c>cells</c> twice, 
 		/// keeping their <see cref ="Width"/> and <see cref ="Height"/>.
 		/// </summary>
 		/// 

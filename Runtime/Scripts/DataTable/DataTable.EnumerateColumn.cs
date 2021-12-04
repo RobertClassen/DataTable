@@ -32,14 +32,14 @@ namespace DataTypes
 			{
 				for(int y = yMin; y <= yMax; y++)
 				{
-					yield return cells[x][y];
+					yield return rows[y][x];
 				}
 			}
 			else
 			{
 				for(int y = yMax; y >= yMin; y--)
 				{
-					yield return cells[x][y];
+					yield return rows[y][x];
 				}
 			}
 		}

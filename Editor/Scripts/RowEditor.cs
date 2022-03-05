@@ -4,7 +4,7 @@ namespace DataTypes
 	using System.Collections;
 	using System.Collections.Generic;
 	using Core;
-	using EverydayExtensions.Editor;
+	using DeepReflection.Editor;
 	using UnityEditor;
 	using UnityEngine;
 	using VectorMath;

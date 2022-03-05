@@ -26,8 +26,40 @@ namespace DataTypes
 		#region Methods
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			//base.OnGUI(position, property, label);
 			EditorGUI.DrawRect(position, 0.5f.Lerp(Color.red, Color.clear));
+
+			SerializedProperty cells = property.FindPropertyRelative("cells");
+			if(cells == null)
+			{
+				EditorGUI.LabelField(position, "Could not find cells");
+				return;
+			}
+
+			int xMax = cells.arraySize;
+			for(int x = 0; x < xMax; x++)
+			{
+				SerializedProperty cell = cells.GetArrayElementAtIndex(x);
+				Rect cellRect = position.GetColumn(x, xMax);
+				if(!cell.hasChildren)
+				{
+					EditorGUI.PropertyField(cellRect, cell, GUIContent.none);
+				}
+				else
+				{
+					if(cell.isArray)
+					{
+						int count = cell.arraySize;
+						EditorGUI.LabelField(cellRect, count.ToString());
+					}
+					else
+					{
+						int count = cell.CountInProperty();
+						EditorGUI.LabelField(cellRect, count.ToString());
+					}
+				}
+
+				//EditorGUI.LabelField(cellRect, cell.type);
+			}
 		}
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)

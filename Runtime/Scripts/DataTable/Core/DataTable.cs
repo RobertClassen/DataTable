@@ -5,7 +5,7 @@ namespace DataTypes.Core
 	using System.Collections.Generic;
 	using NumericMath;
 
-	public abstract class DataTable : IEquatable<DataTable>
+	public abstract partial class DataTable : IEquatable<DataTable>
 	{
 		#region Constants
 		private const string ArgumentOutOfRange = "Specified argument was out of the range of valid values.";

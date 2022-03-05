@@ -3,7 +3,6 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
-	using NumericMath;
 	using UnityEngine;
 
 	public partial class DataTable<T> : Core.DataTable, IEquatable<DataTable<T>>

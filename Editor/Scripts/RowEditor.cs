@@ -4,6 +4,7 @@ namespace DataTypes
 	using System.Collections;
 	using System.Collections.Generic;
 	using Core;
+	using EverydayExtensions.Editor;
 	using UnityEditor;
 	using UnityEngine;
 	using VectorMath;
@@ -11,8 +12,16 @@ namespace DataTypes
 	[CustomPropertyDrawer(typeof(DataTable.Row), true)]
 	public class RowEditor : PropertyDrawer
 	{
-		#region Fields
+		#region Constants
+		private const string CellsFieldName = "cells";
+		private static readonly HashSet<Type> InlineTypes = new HashSet<Type> { 
+			typeof(List<Color>), 
+		};
+		#endregion
 
+		#region Fields
+		private Type type = null;
+		private bool isInlineType = false;
 		#endregion
 
 		#region Properties
@@ -26,39 +35,39 @@ namespace DataTypes
 		#region Methods
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			EditorGUI.DrawRect(position, 0.5f.Lerp(Color.red, Color.clear));
-
-			SerializedProperty cells = property.FindPropertyRelative("cells");
-			if(cells == null)
+			using(new EditorGUI.PropertyScope(position, label, property))
 			{
-				EditorGUI.LabelField(position, "Could not find cells");
-				return;
-			}
-
-			int xMax = cells.arraySize;
-			for(int x = 0; x < xMax; x++)
-			{
-				SerializedProperty cell = cells.GetArrayElementAtIndex(x);
-				Rect cellRect = position.GetColumn(x, xMax);
-				if(!cell.hasChildren)
+				SerializedProperty cells = property.FindPropertyRelative(CellsFieldName);
+				if(cells == null)
 				{
-					EditorGUI.PropertyField(cellRect, cell, GUIContent.none);
+					EditorGUI.LabelField(position, "Could not find cells");
+					return;
 				}
-				else
+
+				int xMax = cells.arraySize;
+				if(type == null)
 				{
-					if(cell.isArray)
+					type = cells.GetArrayElementAtIndex(0).GetFullType();
+					isInlineType = InlineTypes.Contains(type);
+				}
+				for(int x = 0; x < xMax; x++)
+				{
+					SerializedProperty cell = cells.GetArrayElementAtIndex(x);
+					Rect cellRect = position.GetColumn(x, xMax);
+					if(!cell.hasChildren || isInlineType)
 					{
-						int count = cell.arraySize;
-						EditorGUI.LabelField(cellRect, count.ToString());
+						EditorGUI.PropertyField(cellRect, cell, GUIContent.none);
 					}
 					else
 					{
-						int count = cell.CountInProperty();
-						EditorGUI.LabelField(cellRect, count.ToString());
+						if(GUI.Button(cellRect, "Show"))
+						{
+							CellEditor.GetWindow(cell);
+						}
 					}
-				}
 
-				//EditorGUI.LabelField(cellRect, cell.type);
+					//EditorGUI.LabelField(cellRect, cell.type);
+				}
 			}
 		}
 

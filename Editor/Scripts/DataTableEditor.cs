@@ -11,6 +11,10 @@ namespace DataTypes
 	[CustomPropertyDrawer(typeof(DataTable), true)]
 	public class DataTableEditor : PropertyDrawer
 	{
+		#region Constants
+		private const string RowsFieldName = "rows";
+		#endregion
+
 		#region Fields
 
 		#endregion
@@ -30,7 +34,7 @@ namespace DataTypes
 			{
 				GUI.Box(position, (string)null);
 
-				SerializedProperty rows = property.FindPropertyRelative("rows");
+				SerializedProperty rows = property.FindPropertyRelative(RowsFieldName);
 				int yMax = rows.arraySize;
 
 				Rect headerRect = position.GetRow(0, yMax + 1);
@@ -38,7 +42,6 @@ namespace DataTypes
 
 				for(int y = 0; y < yMax; y++)
 				{
-					//position.yMin += EditorGUIUtility.singleLineHeight;
 					Rect rowRect = position.GetRow(y + 1, yMax + 1);
 					EditorGUI.LabelField(rowRect, y.ToString());
 					EditorGUI.PropertyField(rowRect.Indent(), rows.GetArrayElementAtIndex(y));
@@ -48,7 +51,7 @@ namespace DataTypes
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			SerializedProperty rows = property.FindPropertyRelative("rows");
+			SerializedProperty rows = property.FindPropertyRelative(RowsFieldName);
 			int yMax = rows.arraySize;
 			return (yMax + 1) * EditorGUIUtility.singleLineHeight;
 		}

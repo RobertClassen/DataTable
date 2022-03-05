@@ -1,0 +1,20 @@
+{
+    "name": "RobertClassen.DataTable.Editor",
+    "rootNamespace": "DataTypes",
+    "references": [
+        "GUID:0bff87564b8ee6d419b462caa780b329",
+        "GUID:cce1d8cafaba8084bbd60b4ed97e36d7",
+        "GUID:36a6f99212e4deb43bf73f5b7c206522"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

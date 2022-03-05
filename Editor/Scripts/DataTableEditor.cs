@@ -11,6 +11,19 @@ namespace DataTypes
 	[CustomPropertyDrawer(typeof(DataTable), true)]
 	public class DataTableEditor : PropertyDrawer
 	{
+		#region Fields
+
+		#endregion
+
+		#region Properties
+
+		#endregion
+
+		#region Constructors
+
+		#endregion
+
+		#region Methods
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
 			using(new EditorGUI.PropertyScope(position, label, property))
@@ -39,5 +52,6 @@ namespace DataTypes
 			int yMax = rows.arraySize;
 			return (yMax + 1) * EditorGUIUtility.singleLineHeight;
 		}
+		#endregion
 	}
 }

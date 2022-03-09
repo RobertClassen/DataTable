@@ -22,7 +22,7 @@ namespace DataTypes
 		{ get { return new Vector2Int(Width, Height); } }
 
 		public RectInt Rect
-		{ get { return ToRectInt(Size - Vector2Int.one); } }
+		{ get { return new RectInt(Vector2Int.zero, Size - Vector2Int.one); } }
 		#endregion
 
 		#region Constructors
@@ -40,11 +40,6 @@ namespace DataTypes
 		public void Resize(Vector2Int size)
 		{
 			Resize(size.x, size.y);
-		}
-
-		private static RectInt ToRectInt(Vector2Int size, Vector2Int position = default(Vector2Int))
-		{
-			return new RectInt(position, size);
 		}
 		#endregion
 	}

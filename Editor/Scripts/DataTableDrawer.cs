@@ -9,7 +9,7 @@ namespace DataTypes
 	using VectorMath;
 
 	[CustomPropertyDrawer(typeof(DataTable), true)]
-	public class DataTableEditor : PropertyDrawer
+	public class DataTableDrawer : PropertyDrawer
 	{
 		#region Constants
 		private const string RowsFieldName = "rows";

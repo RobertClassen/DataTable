@@ -10,7 +10,7 @@ namespace DataTypes
 	using VectorMath;
 
 	[CustomPropertyDrawer(typeof(DataTable.Row), true)]
-	public class RowEditor : PropertyDrawer
+	public class RowDrawer : PropertyDrawer
 	{
 		#region Constants
 		private const string CellsFieldName = "cells";
@@ -65,8 +65,6 @@ namespace DataTypes
 							CellEditor.GetWindow(cell);
 						}
 					}
-
-					//EditorGUI.LabelField(cellRect, cell.type);
 				}
 			}
 		}

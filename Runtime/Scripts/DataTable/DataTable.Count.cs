@@ -14,9 +14,9 @@ namespace DataTypes
 			int count = 0;
 			int xMax = XMax;
 			int yMax = YMax;
-			for(int y = YMin; y <= xMax; y++)
+			for(int y = YMin; y <= yMax; y++)
 			{
-				for(int x = XMin; x <= yMax; x++)
+				for(int x = XMin; x <= xMax; x++)
 				{
 					if(select(rows[y][x]))
 					{

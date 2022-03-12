@@ -33,7 +33,7 @@ namespace DataTypes
 		/// The number of columns.
 		/// </summary>
 		public override int Width
-		{ get { return rows != null && rows[YMin] != null ? rows[YMin].Width : XMin; } }
+		{ get { return rows != null && rows.Count > YMin && rows[YMin] != null ? rows[YMin].Width : XMin; } }
 
 		/// <summary>
 		/// The number of rows.

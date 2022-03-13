@@ -5,7 +5,7 @@ namespace DataTypes.Core
 	using System.Collections.Generic;
 	using NumericMath;
 
-	public abstract partial class DataTable : IEquatable<DataTable>
+	public abstract class DataTable : IEquatable<DataTable>
 	{
 		#region Constants
 		private const string ArgumentOutOfRange = "Specified argument was out of the range of valid values.";
@@ -18,6 +18,10 @@ namespace DataTypes.Core
 		/// </summary>
 		public const int YMin = Int.Zero;
 		protected const int Two = Int.One + Int.One;
+		#endregion
+
+		#region Events
+		public event Action<int, int> OnCellChanged = null;
 		#endregion
 
 		#region Fields
@@ -56,6 +60,11 @@ namespace DataTypes.Core
 		#endregion
 
 		#region Methods
+		public void NotifyCellChangeListeners(int x, int y)
+		{
+			OnCellChanged?.Invoke(x, y);
+		}
+
 		public bool Equals(DataTable other)
 		{
 			return other != null && (ReferenceEquals(this, other) || Width == other.Width && Height == other.Height);

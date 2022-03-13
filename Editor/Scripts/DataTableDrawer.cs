@@ -54,8 +54,8 @@ namespace DataTypes
 				EditorGUI.LabelField(headerRect, label);
 
 				CustomCellDrawerAttribute customCellDrawer = attribute as CustomCellDrawerAttribute;
-				Action<Rect, SerializedProperty, DataTable, Vector2Int> drawCell = customCellDrawer != null 
-					? customCellDrawer.DrawCell : (Action<Rect, SerializedProperty, DataTable, Vector2Int>)DrawCell;
+				Action<Rect, SerializedProperty, Action<int, int>, Vector2Int> drawCell = customCellDrawer != null 
+					? customCellDrawer.DrawCell : (Action<Rect, SerializedProperty, Action<int, int>, Vector2Int>)DrawCell;
 				for(int y = 0; y < yMax; y++)
 				{
 					Rect rowRect = position.GetRow(y + 1, yMax + 1);
@@ -66,7 +66,7 @@ namespace DataTypes
 		}
 
 		private void DrawRow(Rect rect, SerializedProperty property, 
-			Action<Rect, SerializedProperty, DataTable, Vector2Int> drawCell, DataTable dataTable, int y)
+			Action<Rect, SerializedProperty, Action<int, int>, Vector2Int> drawCell, DataTable dataTable, int y)
 		{
 			SerializedProperty cells = property.FindPropertyRelative(CellsFieldName);
 			if(cells == null)
@@ -84,11 +84,11 @@ namespace DataTypes
 
 			for(int x = 0; x < xMax; x++)
 			{
-				drawCell(rect.GetColumn(x, xMax), cells.GetArrayElementAtIndex(x), dataTable, new Vector2Int(x, y));
+				drawCell(rect.GetColumn(x, xMax), cells.GetArrayElementAtIndex(x), dataTable.NotifyCellChangeListeners, new Vector2Int(x, y));
 			}
 		}
 
-		private void DrawCell(Rect rect, SerializedProperty cell, DataTable dataTable, Vector2Int coordinate)
+		private void DrawCell(Rect rect, SerializedProperty cell, Action<int, int> dataTable, Vector2Int coordinate)
 		{
 			if(!cell.hasChildren || isInlineType)
 			{

@@ -12,10 +12,10 @@ namespace DataTypes
 		#endregion
 
 		#region Properties
-		public T this[Vector2Int coordinate]
+		public T this[Vector2Int coordinate, bool notify = true]
 		{
-			get { return rows[coordinate.y][coordinate.x]; }
-			set { rows[coordinate.y][coordinate.x] = value; }
+			get { return this[coordinate.x, coordinate.y, notify]; }
+			set { this[coordinate.x, coordinate.y, notify] = value; }
 		}
 
 		public Vector2Int Size

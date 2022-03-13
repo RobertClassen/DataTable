@@ -23,10 +23,20 @@ namespace DataTypes
 		public List<Row> Rows
 		{ get { return rows; } }
 
-		public T this[int x, int y]
+		public T this[int x, int y, bool notify = true]
 		{
 			get { return rows[y][x]; }
-			set { rows[y][x] = value; }
+			set
+			{
+				if(!value.Equals(rows[y][x]))
+				{
+					rows[y][x] = value;
+					if(notify)
+					{
+						NotifyCellChangeListeners(x, y);
+					}
+				}
+			}
 		}
 
 		/// <summary>

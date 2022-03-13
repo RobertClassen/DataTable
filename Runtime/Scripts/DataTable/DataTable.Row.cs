@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTable<T>
 	{
 		[Serializable]
-		public class Row : Core.DataTable.Row
+		public class Row
 		{
 			#region Fields
 			[SerializeField]

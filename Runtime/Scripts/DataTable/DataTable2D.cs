@@ -26,7 +26,11 @@ namespace DataTypes
 		#endregion
 
 		#region Constructors
-		public DataTable2D(Vector2Int size) : base(size.x, size.y)
+		public DataTable2D(int width, int height) : base(width, height)
+		{
+		}
+
+		public DataTable2D(Vector2Int size) : this(size.x, size.y)
 		{
 		}
 		#endregion

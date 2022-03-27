@@ -29,7 +29,7 @@ namespace DataTypes
 			get { return rows[y][x]; }
 			set
 			{
-				if(!value.Equals(rows[y][x]))
+				if(!EqualityComparer<T>.Default.Equals(value, rows[y][x]))
 				{
 					rows[y][x] = value;
 					if(notify)

@@ -10,6 +10,7 @@ namespace DataTypes
 		#region Constants
 		private const string ColumnSeparator = "\t";
 		private const string RowSeparator = "\n";
+		private const string NullReplacement = "[null]";
 		private const bool reverseXDefault = false;
 		private const bool reverseYDefault = false;
 		#endregion

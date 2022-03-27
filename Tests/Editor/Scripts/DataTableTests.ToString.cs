@@ -24,5 +24,20 @@ namespace DataTypes
 				"A B C D E";
 			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
 		}
+
+		[Test]
+		public void ToString_Null_Works()
+		{
+			DataTable<string> table = CreateDefault();
+
+			const string expectedWithSpace = 
+				"_ _ _ _ _" + "\n" +
+				"_ _ _ _ _" + "\n" +
+				"_ _ _ _ _";
+
+			table.Clear();
+
+			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+		}
 	}
 }

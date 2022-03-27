@@ -89,16 +89,12 @@ namespace DataTypes
 		/// Returns a <c>System.String</c> that represents the current <see cref="DataTable&lt;T&gt;"/>.
 		/// </summary>
 		/// <param name="columnSeparator">Default is <see cref ="ColumnSeparator"/>.</param>
-		public string ToString(string columnSeparator)
+		/// <param name = "nullReplacement"></param>
+		public string ToString(string columnSeparator, string nullReplacement = NullReplacement)
 		{
 			return string.Join(RowSeparator, EnumerateRows()
 				.Select(row => string.Join(columnSeparator, row
-					.Select(cell => !IsNullOrDefault(cell) ? cell.ToString() : default(T).ToString()))));
-		}
-
-		private static bool IsNullOrDefault(T cell)
-		{
-			return EqualityComparer<T>.Default.Equals(cell, default(T));
+					.Select(cell => cell?.ToString() ?? nullReplacement))));
 		}
 	}
 }

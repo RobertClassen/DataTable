@@ -12,9 +12,16 @@ namespace DataTypes
 		/// </summary>
 		/// <param name="items">Items.</param>
 		/// <param name="yOffset">Y offset.</param>
-		public bool AddColumn(IList<T> items, int yOffset = Int.Zero)
+		public void AddColumn(IList<T> items, int yOffset = Int.Zero)
 		{
-			throw new NotImplementedException();
+			int yMin = yOffset.Max(YMin);
+			int yMax = (Height + yOffset).Min(YMax);
+			int iMin = (-yOffset).Max(YMin);
+			int iMax = (items.Count - yOffset).Min(items.Count - Int.One);
+			for(int y = yMin, i = iMin; y <= yMax && i <= iMax; y++, i++)
+			{
+				rows[y].Cells.Add(items[i]);
+			}
 		}
 
 		/// <summary>

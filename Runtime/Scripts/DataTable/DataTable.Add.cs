@@ -25,6 +25,15 @@ namespace DataTypes
 		}
 
 		/// <summary>
+		/// Adds the <c>items</c> in a new column on the right.
+		/// </summary>
+		/// <param name="items">Items.</param>
+		public void AddColumn(params T[] items)
+		{
+			AddColumn(items);
+		}
+
+		/// <summary>
 		/// Adds the <c>items</c> in a new row at the bottom.
 		/// </summary>
 		/// <param name="items">Items.</param>
@@ -41,6 +50,15 @@ namespace DataTypes
 				row[x] = items[i];
 			}
 			rows.Add(row);
+		}
+
+		/// <summary>
+		/// Adds the <c>items</c> in a new row at the bottom.
+		/// </summary>
+		/// <param name="items">Items.</param>
+		public void AddRow(params T[] items)
+		{
+			AddRow(items);
 		}
 	}
 }

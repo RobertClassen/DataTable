@@ -30,7 +30,8 @@ namespace DataTypes
 		/// ► 4 9 E<br/>
 		/// </c>
 		/// </remarks>
-		public void Flip()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> Flip()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -43,6 +44,7 @@ namespace DataTypes
 				}
 			}
 			rows = flipped.rows;
+			return this;
 		}
 	}
 }

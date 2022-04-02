@@ -15,7 +15,8 @@ namespace DataTypes
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
 		/// <param name="yOffset">Offsets the items by the specified number of rows.</param>
-		public void AddColumn(IList<T> items, int yOffset = Int.Zero)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> AddColumn(IList<T> items, int yOffset = Int.Zero)
 		{
 			int yMin = yOffset.Max(YMin);
 			int yMax = (Height + yOffset).Min(YMax);
@@ -25,6 +26,7 @@ namespace DataTypes
 			{
 				rows[y].Cells.Add(items[i]);
 			}
+			return this;
 		}
 
 		/// <summary>
@@ -34,9 +36,10 @@ namespace DataTypes
 		/// Items which are out of bounds will be ignored.
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
-		public void AddColumn(params T[] items)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> AddColumn(params T[] items)
 		{
-			AddColumn(items);
+			return AddColumn(items);
 		}
 
 		/// <summary>
@@ -47,7 +50,8 @@ namespace DataTypes
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
 		/// <param name="xOffset">Offsets the items by the specified number of columns.</param>
-		public void AddRow(IList<T> items, int xOffset = Int.Zero)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> AddRow(IList<T> items, int xOffset = Int.Zero)
 		{
 			Row row = new Row(Width);
 			int xMin = xOffset.Max(XMin);
@@ -59,6 +63,7 @@ namespace DataTypes
 				row[x] = items[i];
 			}
 			rows.Add(row);
+			return this;
 		}
 
 		/// <summary>
@@ -68,9 +73,10 @@ namespace DataTypes
 		/// Items which are out of bounds will be ignored.
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
-		public void AddRow(params T[] items)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> AddRow(params T[] items)
 		{
-			AddRow(items);
+			return AddRow(items);
 		}
 	}
 }

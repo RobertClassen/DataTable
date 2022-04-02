@@ -31,7 +31,8 @@ namespace DataTypes
 		/// ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		public void RotateLeft()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> RotateLeft()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -45,6 +46,7 @@ namespace DataTypes
 				}
 			}
 			rows = rotated.rows;
+			return this;
 		}
 
 		/// <summary>
@@ -72,7 +74,8 @@ namespace DataTypes
 		/// E 9 4<br/>
 		/// </c>
 		/// </remarks>
-		public void RotateRight()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> RotateRight()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -86,6 +89,7 @@ namespace DataTypes
 				}
 			}
 			rows = rotated.rows;
+			return this;
 		}
 
 		/// <summary>
@@ -110,10 +114,11 @@ namespace DataTypes
 		/// . ▲ ▲ ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
+		/// <returns>Returns the same instance.</returns>
 		[Obsolete("This wrapper method exists for discoverability. Call 'Reverse()' directly instead.")]
-		public void RotateTwice()
+		public DataTable<T> RotateTwice()
 		{
-			Reverse();
+			return Reverse();
 		}
 	}
 }

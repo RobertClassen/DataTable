@@ -21,7 +21,8 @@ namespace DataTypes
 		/// 
 		/// <param name="width">The new number of columns.</param>
 		/// <param name="height">The new number of rows.</param>
-		public void Resize(int width, int height)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> Resize(int width, int height)
 		{
 			if(width <= Int.Zero)
 			{
@@ -34,10 +35,11 @@ namespace DataTypes
 
 			if(width == Width && height == Height)
 			{
-				return;
+				return this;
 			}
 
 			rows = CopyTo(new DataTable<T>(width, height)).rows;
+			return this;
 		}
 	}
 }

@@ -29,7 +29,8 @@ namespace DataTypes
 		/// . ▲ ▲ ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		public void Reverse()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> Reverse()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -49,10 +50,11 @@ namespace DataTypes
 
 					if(++count >= halfCapacity)
 					{
-						return;
+						return this;
 					}
 				}
 			}
+			return this;
 		}
 
 		/// <summary>
@@ -76,7 +78,8 @@ namespace DataTypes
 		/// ▲ . . . .<br/>
 		/// </c>
 		/// </remarks>
-		public void ReverseColumn(int x)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> ReverseColumn(int x)
 		{
 			VerifyX(x);
 
@@ -91,6 +94,7 @@ namespace DataTypes
 				rows[y][x] = rows[yReverse][x];
 				rows[yReverse][x] = temp;
 			}
+			return this;
 		}
 
 		/// <summary>
@@ -114,7 +118,8 @@ namespace DataTypes
 		/// ▲ ▲ ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		public void ReverseColumns()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> ReverseColumns()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -131,6 +136,7 @@ namespace DataTypes
 					rows[yReverse][x] = temp;
 				}
 			}
+			return this;
 		}
 
 		/// <summary>
@@ -152,7 +158,8 @@ namespace DataTypes
 		/// A B C D E .<br/>
 		/// </c>
 		/// </remarks>
-		public void ReverseRow(int y)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> ReverseRow(int y)
 		{
 			VerifyY(y);
 
@@ -167,6 +174,7 @@ namespace DataTypes
 				rows[y][x] = rows[y][xReverse];
 				rows[y][xReverse] = temp;
 			}
+			return this;
 		}
 
 		/// <summary>
@@ -188,7 +196,8 @@ namespace DataTypes
 		/// E D C B A ◄<br/>
 		/// </c>
 		/// </remarks>
-		public void ReverseRows()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> ReverseRows()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -205,6 +214,7 @@ namespace DataTypes
 					rows[y][xReverse] = temp;
 				}
 			}
+			return this;
 		}
 	}
 }

@@ -39,11 +39,13 @@ namespace DataTypes
 		/// . . . . . ▲ .<br/>
 		/// </c>
 		/// </remarks>
-		public void Swap(int x0, int y0, int x1, int y1)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> Swap(int x0, int y0, int x1, int y1)
 		{
 			T temp = rows[y0][x0];
 			rows[y0][x0] = rows[y1][x1];
 			rows[y1][x1] = temp;
+			return this;
 		}
 
 		/// <summary>
@@ -74,9 +76,10 @@ namespace DataTypes
 		/// B A C D E<br/>
 		/// </c>
 		/// </remarks>
-		public void SwapColumns(int x0, int x1)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> SwapColumns(int x0, int x1)
 		{
-			SwapColumns(x0, x1, YMin, YMax);
+			return SwapColumns(x0, x1, YMin, YMax);
 		}
 
 		/// <summary>
@@ -108,7 +111,8 @@ namespace DataTypes
 		/// . A B C D E<br/>
 		/// </c>
 		/// </remarks>
-		public void SwapColumns(int x0, int x1, int yMin, int yMax)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> SwapColumns(int x0, int x1, int yMin, int yMax)
 		{
 			VerifyX(x0);
 			VerifyX(x1);
@@ -121,6 +125,7 @@ namespace DataTypes
 				rows[y][x0] = rows[y][x1];
 				rows[y][x1] = temp;
 			}
+			return this;
 		}
 
 		/// <summary>
@@ -149,9 +154,10 @@ namespace DataTypes
 		/// . A B C D E<br/>
 		/// </c>
 		/// </remarks>
-		public void SwapRows(int y0, int y1)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> SwapRows(int y0, int y1)
 		{
-			SwapRows(y0, y1, XMin, XMax);
+			return SwapRows(y0, y1, XMin, XMax);
 		}
 
 		/// <summary>
@@ -183,7 +189,8 @@ namespace DataTypes
 		/// . A B C D E<br/>
 		/// </c>
 		/// </remarks>
-		public void SwapRows(int y0, int y1, int xMin, int xMax)
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> SwapRows(int y0, int y1, int xMin, int xMax)
 		{
 			VerifyY(y0);
 			VerifyY(y1);
@@ -196,6 +203,7 @@ namespace DataTypes
 				rows[y0][x] = rows[y1][x];
 				rows[y1][x] = temp;
 			}
+			return this;
 		}
 	}
 }

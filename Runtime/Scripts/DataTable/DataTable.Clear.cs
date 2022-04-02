@@ -9,7 +9,8 @@ namespace DataTypes
 		/// <summary>
 		/// Resets the values of all <see cref ="cells"/> to their <c>default(T)</c> value.
 		/// </summary>
-		public void Clear()
+		/// <returns>Returns the same instance.</returns>
+		public DataTable<T> Clear()
 		{
 			int xMax = XMax;
 			int yMax = YMax;
@@ -20,6 +21,7 @@ namespace DataTypes
 					rows[y][x] = default(T);
 				}
 			}
+			return this;
 		}
 	}
 }

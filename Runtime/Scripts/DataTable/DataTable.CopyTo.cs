@@ -7,6 +7,7 @@ namespace DataTypes
 
 	public partial class DataTable<T>
 	{
+		/// <returns>Returns the <c>destination</c> instance.</returns>
 		public DataTable<T> CopyTo(DataTable<T> destination)
 		{
 			int width = Width;

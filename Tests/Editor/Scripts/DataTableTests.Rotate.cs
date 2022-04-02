@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void RotateLeft_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"4 9 E" + "\n" +
@@ -27,7 +27,7 @@ namespace DataTypes
 		[Test]
 		public void RotateRight_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"A 5 0" + "\n" +

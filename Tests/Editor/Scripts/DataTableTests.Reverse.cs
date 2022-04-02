@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void Reverse_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"E D C B A" + "\n" +
@@ -25,7 +25,7 @@ namespace DataTypes
 		[Test]
 		public void ReverseColumn_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"A 1 2 3 4" + "\n" +
@@ -40,7 +40,7 @@ namespace DataTypes
 		[Test]
 		public void ReverseColumns_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"A B C D E" + "\n" +
@@ -55,7 +55,7 @@ namespace DataTypes
 		[Test]
 		public void ReverseRow_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"4 3 2 1 0" + "\n" +
@@ -70,7 +70,7 @@ namespace DataTypes
 		[Test]
 		public void ReverseRows_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"4 3 2 1 0" + "\n" +

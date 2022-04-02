@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void Swap_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"E 1 2 3 4" + "\n" +
@@ -25,7 +25,7 @@ namespace DataTypes
 		[Test]
 		public void SwapColumns_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"1 0 2 3 4" + "\n" +
@@ -40,7 +40,7 @@ namespace DataTypes
 		[Test]
 		public void SwapColumns_LimitedRows_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"1 0 2 3 4" + "\n" +
@@ -55,7 +55,7 @@ namespace DataTypes
 		[Test]
 		public void SwapRows_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"5 6 7 8 9" + "\n" +
@@ -70,7 +70,7 @@ namespace DataTypes
 		[Test]
 		public void SwapRows_LimitedColumns_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"5 6 2 3 4" + "\n" +

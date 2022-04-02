@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_GreaterWidth_PositiveOffset1()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +
@@ -26,7 +26,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_GreaterWidth_PositiveOffset3()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +
@@ -42,7 +42,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_GreaterWidth_PositiveOffset5()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +
@@ -58,7 +58,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_GreaterWidth_PositiveOffset7()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +

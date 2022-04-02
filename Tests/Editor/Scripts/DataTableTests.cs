@@ -29,7 +29,7 @@ namespace DataTypes
 			return table;
 		}
 
-		private static DataTable<string> CreateDefault()
+		private static DataTable<string> Create5x3()
 		{
 			return Create(5, "0 1 2 3 4", "5 6 7 8 9", "A B C D E");
 		}
@@ -37,7 +37,7 @@ namespace DataTypes
 		[Test]
 		public void Create_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			Assert.AreEqual(15, table.Capacity);
 

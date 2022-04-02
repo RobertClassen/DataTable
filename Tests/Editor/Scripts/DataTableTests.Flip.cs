@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void Flip_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 5 A" + "\n" +

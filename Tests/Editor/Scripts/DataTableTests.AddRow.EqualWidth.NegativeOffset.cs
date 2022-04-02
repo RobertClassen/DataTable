@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_EqualWidth_NegativeOffset1()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +
@@ -26,7 +26,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_EqualWidth_NegativeOffset3()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +
@@ -42,7 +42,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_EqualWidth_NegativeOffset5()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +
@@ -58,7 +58,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_EqualWidth_NegativeOffset7()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +

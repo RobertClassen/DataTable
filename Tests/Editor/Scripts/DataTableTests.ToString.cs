@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void ToString_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedDefault = 
 				"0\t1\t2\t3\t4" + "\n" +
@@ -28,7 +28,7 @@ namespace DataTypes
 		[Test]
 		public void ToString_Null_Works()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"_ _ _ _ _" + "\n" +

@@ -10,7 +10,7 @@ namespace DataTypes
 		[Test]
 		public void AddRow_LessWidth_DefaultOffset()
 		{
-			DataTable<string> table = CreateDefault();
+			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
 				"0 1 2 3 4" + "\n" +

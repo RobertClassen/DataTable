@@ -18,13 +18,17 @@ namespace DataTypes
 		/// <returns>Returns the same instance.</returns>
 		public DataTable<T> AddColumn(IList<T> items, int yOffset = Int.Zero)
 		{
+			for(int y = YMin; y <= YMax; y++)
+			{
+				rows[y].Cells.Add(default(T));
+			}
 			int yMin = yOffset.Max(YMin);
 			int yMax = (Height + yOffset).Min(YMax);
 			int iMin = (-yOffset).Max(YMin);
 			int iMax = (items.Count - yOffset).Min(items.Count - Int.One);
 			for(int y = yMin, i = iMin; y <= yMax && i <= iMax; y++, i++)
 			{
-				rows[y].Cells.Add(items[i]);
+				rows[y].Cells[XMax] = items[i];
 			}
 			return this;
 		}

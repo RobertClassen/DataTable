@@ -25,16 +25,13 @@ namespace DataTypes
 		public void AddRow(IList<T> items, int xOffset = Int.Zero)
 		{
 			Row row = new Row(Width);
-
-			int xMin = (XMin + xOffset).Clamp(items);
-			int xMax = (Width + xOffset)/*.Clamp(items)*/;
-			int iMin = (XMin - xOffset).Clamp(items);
-			int iMax = (XMax - xOffset).Clamp(items);
-			UnityEngine.Debug.Log("[" + xMin + ".." + xMax + "] = [" + iMin + ".." + iMax + "]");
+			int xMin = xOffset.Max(XMin);
+			int xMax = (Width + xOffset).Min(XMax);
+			int iMin = (-xOffset).Max(XMin);
+			int iMax = (items.Count - xOffset).Min(items.Count - Int.One);
 			for(int x = xMin, i = iMin; x <= xMax && i <= iMax; x++, i++)
 			{
 				row[x] = items[i];
-				UnityEngine.Debug.Log(x + " = " + i);
 			}
 			rows.Add(row);
 		}

@@ -39,7 +39,7 @@ namespace DataTypes
 		/// <returns>Returns the same instance.</returns>
 		public DataTable<T> AddColumn(params T[] items)
 		{
-			return AddColumn(items);
+			return AddColumn(items, Int.Zero);
 		}
 
 		/// <summary>
@@ -76,7 +76,7 @@ namespace DataTypes
 		/// <returns>Returns the same instance.</returns>
 		public DataTable<T> AddRow(params T[] items)
 		{
-			return AddRow(items);
+			return AddRow(items, Int.Zero);
 		}
 	}
 }

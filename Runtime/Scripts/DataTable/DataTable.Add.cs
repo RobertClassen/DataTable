@@ -30,7 +30,7 @@ namespace DataTypes
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
 		/// <param name="yOffset">Offsets the items by the specified number of rows.</param>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> AddColumn(IList<T> items, int yOffset = Int.Zero)
 		{
 			AddColumn();
@@ -55,7 +55,7 @@ namespace DataTypes
 		/// in case of an exception when assigning the <c>items</c>.
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> AddColumn(params T[] items)
 		{
 			return AddColumn(items, Int.Zero);
@@ -79,7 +79,7 @@ namespace DataTypes
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
 		/// <param name="xOffset">Offsets the items by the specified number of columns.</param>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> AddRow(IList<T> items, int xOffset = Int.Zero)
 		{
 			AddRow();
@@ -103,7 +103,7 @@ namespace DataTypes
 		/// The new row will be added first to match the behavior of the <see cref ="AddColumn"/> method.
 		/// </remarks>
 		/// <param name="items">The items to be added.</param>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> AddRow(params T[] items)
 		{
 			return AddRow(items, Int.Zero);

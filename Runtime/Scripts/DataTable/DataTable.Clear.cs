@@ -9,7 +9,7 @@ namespace DataTypes
 		/// <summary>
 		/// Resets the values of all <see cref ="cells"/> to their <c>default(T)</c> value.
 		/// </summary>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> Clear()
 		{
 			int xMax = XMax;

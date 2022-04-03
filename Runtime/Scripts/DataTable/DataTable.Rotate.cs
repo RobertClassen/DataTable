@@ -31,7 +31,7 @@ namespace DataTypes
 		/// ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> RotateLeft()
 		{
 			int xMax = XMax;
@@ -74,7 +74,7 @@ namespace DataTypes
 		/// E 9 4<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> RotateRight()
 		{
 			int xMax = XMax;
@@ -114,7 +114,7 @@ namespace DataTypes
 		/// . ▲ ▲ ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		[Obsolete("This wrapper method exists for discoverability. Call 'Reverse()' directly instead.")]
 		public DataTable<T> RotateTwice()
 		{

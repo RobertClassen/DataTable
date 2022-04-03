@@ -29,7 +29,7 @@ namespace DataTypes
 		/// . ▲ ▲ ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> Reverse()
 		{
 			int xMax = XMax;
@@ -78,7 +78,7 @@ namespace DataTypes
 		/// ▲ . . . .<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> ReverseColumn(int x)
 		{
 			VerifyX(x);
@@ -118,7 +118,7 @@ namespace DataTypes
 		/// ▲ ▲ ▲ ▲ ▲<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> ReverseColumns()
 		{
 			int xMax = XMax;
@@ -158,7 +158,7 @@ namespace DataTypes
 		/// A B C D E .<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> ReverseRow(int y)
 		{
 			VerifyY(y);
@@ -196,7 +196,7 @@ namespace DataTypes
 		/// E D C B A ◄<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> ReverseRows()
 		{
 			int xMax = XMax;

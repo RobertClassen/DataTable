@@ -39,7 +39,7 @@ namespace DataTypes
 		/// . . . . . ▲ .<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> Swap(int x0, int y0, int x1, int y1)
 		{
 			T temp = rows[y0][x0];
@@ -76,7 +76,7 @@ namespace DataTypes
 		/// B A C D E<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> SwapColumns(int x0, int x1)
 		{
 			return SwapColumns(x0, x1, YMin, YMax);
@@ -111,7 +111,7 @@ namespace DataTypes
 		/// . A B C D E<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> SwapColumns(int x0, int x1, int yMin, int yMax)
 		{
 			VerifyX(x0);
@@ -154,7 +154,7 @@ namespace DataTypes
 		/// . A B C D E<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> SwapRows(int y0, int y1)
 		{
 			return SwapRows(y0, y1, XMin, XMax);
@@ -189,7 +189,7 @@ namespace DataTypes
 		/// . A B C D E<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> SwapRows(int y0, int y1, int xMin, int xMax)
 		{
 			VerifyY(y0);

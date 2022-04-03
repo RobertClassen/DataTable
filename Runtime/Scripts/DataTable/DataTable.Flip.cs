@@ -30,7 +30,7 @@ namespace DataTypes
 		/// ► 4 9 E<br/>
 		/// </c>
 		/// </remarks>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> Flip()
 		{
 			int xMax = XMax;

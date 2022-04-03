@@ -21,7 +21,7 @@ namespace DataTypes
 		/// 
 		/// <param name="width">The new number of columns.</param>
 		/// <param name="height">The new number of rows.</param>
-		/// <returns>Returns the same instance.</returns>
+		/// <returns>The same instance.</returns>
 		public DataTable<T> Resize(int width, int height)
 		{
 			if(width <= Int.Zero)

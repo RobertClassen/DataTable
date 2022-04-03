@@ -78,7 +78,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Returns a <c>System.String</c> that represents the current <see cref="DataTable&lt;T&gt;"/>.
+		/// Returns a <c>System.String</c> that represents the <see cref="DataTable&lt;T&gt;"/> in a grid.
 		/// </summary>
 		public override string ToString()
 		{
@@ -86,13 +86,14 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Returns a <c>System.String</c> that represents the current <see cref="DataTable&lt;T&gt;"/>.
+		/// Returns a <c>System.String</c> that represents the <see cref="DataTable&lt;T&gt;"/> with custom separators.
 		/// </summary>
-		/// <param name="columnSeparator">Default is <see cref ="ColumnSeparator"/>.</param>
-		/// <param name = "nullReplacement"></param>
-		public string ToString(string columnSeparator, string nullReplacement = NullReplacement)
+		/// <param name="columnSeparator">Can be used to customize how columns are spaced apart. Default is <see cref ="ColumnSeparator"/>.</param>
+		/// <param name = "nullReplacement">Can be used to customize how <c>null</c> <c>object</c>s are represented.</param>
+		/// <param name = "rowSeparator">Can be used to customize how rows are separated.</param>
+		public string ToString(string columnSeparator, string nullReplacement = NullReplacement, string rowSeparator = RowSeparator)
 		{
-			return string.Join(RowSeparator, EnumerateRows()
+			return string.Join(rowSeparator, EnumerateRows()
 				.Select(row => string.Join(columnSeparator, row
 					.Select(cell => cell?.ToString() ?? nullReplacement))));
 		}

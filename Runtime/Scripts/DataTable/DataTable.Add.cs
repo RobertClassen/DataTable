@@ -34,10 +34,10 @@ namespace DataTypes
 		public DataTable<T> AddColumn(IList<T> items, int yOffset = Int.Zero)
 		{
 			AddColumn();
-			int yMin = yOffset.Max(YMin);
-			int yMax = (Height + yOffset).Min(YMax);
-			int iMin = (-yOffset).Max(YMin);
-			int iMax = (items.Count - yOffset).Min(items.Count - Int.One);
+			int yMin = Math.Max(YMin, yOffset);
+			int yMax = Math.Min(YMax, Height + yOffset);
+			int iMin = Math.Max(YMin, -yOffset);
+			int iMax = Math.Min(items.Count - Int.One, items.Count - yOffset);
 			int xMax = XMax;
 			for(int y = yMin, i = iMin; y <= yMax && i <= iMax; y++, i++)
 			{
@@ -84,10 +84,10 @@ namespace DataTypes
 		{
 			AddRow();
 			Row row = rows[YMax];
-			int xMin = xOffset.Max(XMin);
-			int xMax = (Width + xOffset).Min(XMax);
-			int iMin = (-xOffset).Max(XMin);
-			int iMax = (items.Count - xOffset).Min(items.Count - Int.One);
+			int xMin = Math.Max(XMin, xOffset);
+			int xMax = Math.Min(XMax, Width + xOffset);
+			int iMin = Math.Max(XMin, -xOffset);
+			int iMax = Math.Min(items.Count - Int.One, items.Count - xOffset);
 			for(int x = xMin, i = iMin; x <= xMax && i <= iMax; x++, i++)
 			{
 				row[x] = items[i];

@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void RotateLeft_Works()
+		public void RotateLeft()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -25,7 +25,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void RotateRight_Works()
+		public void RotateRight()
 		{
 			DataTable<string> table = Create5x3();
 

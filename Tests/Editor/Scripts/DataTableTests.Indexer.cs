@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void Indexer_Works()
+		public void Indexer()
 		{
 			const int width = 5;
 			const int height = 3;

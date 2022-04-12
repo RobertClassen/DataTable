@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void ToString_Works()
+		public void ToString()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -26,7 +26,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void ToString_Null_Works()
+		public void ToString_Null()
 		{
 			DataTable<string> table = Create5x3();
 

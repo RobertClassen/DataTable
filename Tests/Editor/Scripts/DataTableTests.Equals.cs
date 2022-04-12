@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void Equals_Works()
+		public void Equals()
 		{
 			const int width = 5;
 			const int height = 3;

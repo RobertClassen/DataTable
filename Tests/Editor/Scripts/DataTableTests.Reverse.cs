@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void Reverse_Works()
+		public void Reverse()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -23,7 +23,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void ReverseColumn_Works()
+		public void ReverseColumn()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -38,7 +38,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void ReverseColumns_Works()
+		public void ReverseColumns()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -53,7 +53,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void ReverseRow_Works()
+		public void ReverseRow()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -68,7 +68,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void ReverseRows_Works()
+		public void ReverseRows()
 		{
 			DataTable<string> table = Create5x3();
 

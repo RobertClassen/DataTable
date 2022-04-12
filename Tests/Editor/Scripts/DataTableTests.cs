@@ -35,7 +35,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void Create_Works()
+		public void Create()
 		{
 			DataTable<string> table = Create5x3();
 

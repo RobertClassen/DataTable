@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void Flip_Works()
+		public void Flip()
 		{
 			DataTable<string> table = Create5x3();
 

@@ -8,7 +8,7 @@ namespace DataTypes
 	public partial class DataTableTests
 	{
 		[Test]
-		public void Swap_Works()
+		public void Swap()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -23,7 +23,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void SwapColumns_Works()
+		public void SwapColumns()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -38,7 +38,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void SwapColumns_LimitedRows_Works()
+		public void SwapColumns_LimitedRows()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -53,7 +53,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void SwapRows_Works()
+		public void SwapRows()
 		{
 			DataTable<string> table = Create5x3();
 
@@ -68,7 +68,7 @@ namespace DataTypes
 		}
 
 		[Test]
-		public void SwapRows_LimitedColumns_Works()
+		public void SwapRows_LimitedColumns()
 		{
 			DataTable<string> table = Create5x3();
 

@@ -29,9 +29,10 @@ namespace DataTypes
 			get { return rows[y][x]; }
 			set
 			{
-				if(!EqualityComparer<T>.Default.Equals(value, rows[y][x]))
+				Row row = rows[y];
+				if(!EqualityComparer<T>.Default.Equals(value, row[x]))
 				{
-					rows[y][x] = value;
+					row[x] = value;
 					if(notify)
 					{
 						NotifyCellChangeListeners(x, y);

@@ -19,7 +19,7 @@ namespace DataTypes
 				row = rows[y];
 				for(int x = XMin; x <= xMax; x++)
 				{
-					if(!item.Equals(rows[y][x]))
+					if(!item.Equals(row[x]))
 					{
 						return false;
 					}

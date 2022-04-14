@@ -14,11 +14,13 @@ namespace DataTypes
 			int count = 0;
 			int xMax = XMax;
 			int yMax = YMax;
+			Row row;
 			for(int y = YMin; y <= yMax; y++)
 			{
+				row = rows[y];
 				for(int x = XMin; x <= xMax; x++)
 				{
-					if(item.Equals(rows[y][x]))
+					if(item.Equals(row[x]))
 					{
 						count++;
 					}
@@ -35,11 +37,13 @@ namespace DataTypes
 			int count = 0;
 			int xMax = XMax;
 			int yMax = YMax;
+			Row row;
 			for(int y = YMin; y <= yMax; y++)
 			{
+				row = rows[y];
 				for(int x = XMin; x <= xMax; x++)
 				{
-					if(select(rows[y][x]))
+					if(select(row[x]))
 					{
 						count++;
 					}
@@ -89,9 +93,11 @@ namespace DataTypes
 		{
 			int count = 0;
 			int xMax = XMax;
+			Row row;
 			for(int x = XMin; x <= xMax; x++)
 			{
-				if(item.Equals(rows[y][x]))
+				row = rows[y];
+				if(item.Equals(row[x]))
 				{
 					count++;
 				}
@@ -106,9 +112,11 @@ namespace DataTypes
 		{
 			int count = 0;
 			int xMax = XMax;
+			Row row;
 			for(int x = XMin; x <= xMax; x++)
 			{
-				if(select(rows[y][x]))
+				row = rows[y];
+				if(select(row[x]))
 				{
 					count++;
 				}

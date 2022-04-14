@@ -98,9 +98,10 @@ namespace DataTypes
 		{
 			VerifyXMinMax(xMin, xMax);
 			VerifyYMinMax(yMin, yMax);
+			Row row;
 			for(int y = yMin; y <= yMax; y++)
 			{
-				Row row = rows[y];
+				row = rows[y];
 				for(int x = xMin; x <= xMax; x++)
 				{
 					row[x] = default(T);

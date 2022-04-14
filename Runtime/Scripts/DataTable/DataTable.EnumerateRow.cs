@@ -28,18 +28,19 @@ namespace DataTypes
 			VerifyY(y);
 			VerifyXMinMax(xMin, xMax);
 
+			Row row = rows[y];
 			if(!reverseX)
 			{
 				for(int x = xMin; x <= xMax; x++)
 				{
-					yield return rows[y][x];
+					yield return row[x];
 				}
 			}
 			else
 			{
 				for(int x = xMax; x >= xMin; x--)
 				{
-					yield return rows[y][x];
+					yield return row[x];
 				}
 			}
 		}

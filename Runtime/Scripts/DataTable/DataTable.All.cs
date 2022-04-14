@@ -13,8 +13,10 @@ namespace DataTypes
 		{
 			int xMax = XMax;
 			int yMax = YMax;
+			Row row;
 			for(int y = YMin; y <= yMax; y++)
 			{
+				row = rows[y];
 				for(int x = XMin; x <= xMax; x++)
 				{
 					if(!item.Equals(rows[y][x]))
@@ -33,11 +35,13 @@ namespace DataTypes
 		{
 			int xMax = XMax;
 			int yMax = YMax;
+			Row row;
 			for(int y = YMin; y <= yMax; y++)
 			{
+				row = rows[y];
 				for(int x = XMin; x <= xMax; x++)
 				{
-					if(!select(rows[y][x]))
+					if(!select(row[x]))
 					{
 						return false;
 					}
@@ -84,9 +88,10 @@ namespace DataTypes
 		public bool AllInRow(int y, T item)
 		{
 			int xMax = XMax;
+			Row row = rows[y];
 			for(int x = XMin; x <= xMax; x++)
 			{
-				if(!item.Equals(rows[y][x]))
+				if(!item.Equals(row[x]))
 				{
 					return false;
 				}
@@ -100,9 +105,10 @@ namespace DataTypes
 		public bool AllInRow(int y, Func<T, bool> select)
 		{
 			int xMax = XMax;
+			Row row = rows[y];
 			for(int x = XMin; x <= xMax; x++)
 			{
-				if(!select(rows[y][x]))
+				if(!select(row[x]))
 				{
 					return false;
 				}

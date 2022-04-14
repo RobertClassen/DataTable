@@ -36,11 +36,13 @@ namespace DataTypes
 			int xMax = XMax;
 			int yMax = YMax;
 			DataTable<T> flipped = new DataTable<T>(Height, Width);
+			Row row;
 			for(int y = YMin; y <= yMax; y++)
 			{
+				row = rows[y];
 				for(int x = XMin; x <= xMax; x++)
 				{
-					flipped.rows[x][y] = rows[y][x];
+					flipped.rows[x][y] = row[x];
 				}
 			}
 			rows = flipped.rows;

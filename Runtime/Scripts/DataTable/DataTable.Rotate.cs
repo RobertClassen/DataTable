@@ -37,12 +37,13 @@ namespace DataTypes
 			int xMax = XMax;
 			int yMax = YMax;
 			DataTable<T> rotated = new DataTable<T>(Height, Width);
-			for(int x = XMin; x <= xMax; x++)
+			Row row;
+			for(int y = YMin; y <= yMax; y++)
 			{
-				int newX = xMax - x;
-				for(int y = YMin; y <= yMax; y++)
+				row = rows[y];
+				for(int x = XMin; x <= xMax; x++)
 				{
-					rotated.rows[x][y] = rows[y][newX];
+					rotated.rows[x][y] = row[xMax - x];
 				}
 			}
 			rows = rotated.rows;
@@ -80,12 +81,13 @@ namespace DataTypes
 			int xMax = XMax;
 			int yMax = YMax;
 			DataTable<T> rotated = new DataTable<T>(Height, Width);
-			for(int y = YMin; y <= yMax; y++)
+			Row rotatedRow;
+			for(int x = XMin; x <= xMax; x++)
 			{
-				int newY = yMax - y;
-				for(int x = XMin; x <= xMax; x++)
+				for(int y = YMin; y <= yMax; y++)
 				{
-					rotated.rows[x][y] = rows[newY][x];
+					rotatedRow = rotated.rows[x];
+					rotatedRow[y] = rows[yMax - y][x];
 				}
 			}
 			rows = rotated.rows;

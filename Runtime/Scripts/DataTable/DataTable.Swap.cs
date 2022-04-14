@@ -42,9 +42,11 @@ namespace DataTypes
 		/// <returns>The same instance.</returns>
 		public DataTable<T> Swap(int x0, int y0, int x1, int y1)
 		{
-			T temp = rows[y0][x0];
-			rows[y0][x0] = rows[y1][x1];
-			rows[y1][x1] = temp;
+			Row row0 = rows[y0];
+			Row row1 = rows[y1];
+			T temp = row0[x0];
+			row0[x0] = row1[x1];
+			row1[x1] = temp;
 			return this;
 		}
 
@@ -119,11 +121,13 @@ namespace DataTypes
 			VerifyYMinMax(yMin, yMax);
 
 			T temp;
+			Row row;
 			for(int y = yMin; y <= yMax; y++)
 			{
-				temp = rows[y][x0];
-				rows[y][x0] = rows[y][x1];
-				rows[y][x1] = temp;
+				row = rows[y];
+				temp = row[x0];
+				row[x0] = row[x1];
+				row[x1] = temp;
 			}
 			return this;
 		}
@@ -197,11 +201,13 @@ namespace DataTypes
 			VerifyXMinMax(xMin, xMax);
 
 			T temp;
+			Row row0 = rows[y0];
+			Row row1 = rows[y1];
 			for(int x = xMin; x <= xMax; x++)
 			{
-				temp = rows[y0][x];
-				rows[y0][x] = rows[y1][x];
-				rows[y1][x] = temp;
+				temp = row0[x];
+				row0[x] = row1[x];
+				row1[x] = temp;
 			}
 			return this;
 		}

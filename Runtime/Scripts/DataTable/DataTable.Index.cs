@@ -44,9 +44,10 @@ namespace DataTypes
 		public int IndexInRow(int y, T item)
 		{
 			int xMax = XMax;
+			Row row = rows[y];
 			for(int x = XMin; x <= xMax; x++)
 			{
-				if(item.Equals(rows[y][x]))
+				if(item.Equals(row[x]))
 				{
 					return x;
 				}
@@ -60,9 +61,10 @@ namespace DataTypes
 		public int IndexInRow(int y, Func<T, bool> select)
 		{
 			int xMax = XMax;
+			Row row = rows[y];
 			for(int x = XMin; x <= xMax; x++)
 			{
-				if(select(rows[y][x]))
+				if(select(row[x]))
 				{
 					return x;
 				}

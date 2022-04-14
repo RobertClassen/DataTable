@@ -10,6 +10,22 @@ namespace DataTypes
 		private const int HashSeed = 1009;
 		private const int HashFactor = 9176;
 
+		public override int GetHashCode()
+		{
+			int xMax = XMax;
+			int yMax = YMax;
+			int hash = HashSeed;
+			for(int y = YMin; y <= yMax; y++)
+			{
+				Row row = rows[y];
+				for(int x = XMin; x <= xMax; x++)
+				{
+					hash = (hash * HashFactor) + row[x]?.GetHashCode() ?? Int.Zero;
+				}
+			}
+			return hash;
+		}
+
 		public virtual int GetColumnHashCode(int x)
 		{
 			int yMax = YMax;

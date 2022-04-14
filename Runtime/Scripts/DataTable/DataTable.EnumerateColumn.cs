@@ -3,6 +3,7 @@ namespace DataTypes
 	using System;
 	using System.Collections;
 	using System.Collections.Generic;
+	using NumericMath;
 
 	public partial class DataTable<T>
 	{
@@ -25,6 +26,11 @@ namespace DataTypes
 		/// <param name="reverseY">Iterates top to bottom if set to <c>false</c>, else iterates bottom to top.</param>
 		public IEnumerable<T> EnumerateColumn(int x, int yMin, int yMax, bool reverseY = reverseYDefault)
 		{
+			if(Height == Int.Zero)
+			{
+				yield break;
+			}
+
 			VerifyX(x);
 			VerifyYMinMax(yMin, yMax);
 
@@ -81,6 +87,11 @@ namespace DataTypes
 		public IEnumerable<IEnumerable<T>> EnumerateColumns(int xMin, int xMax, int yMin, int yMax, 
 			bool reverseX = reverseXDefault, bool reverseY = reverseYDefault)
 		{
+			if(Width == Int.Zero)
+			{
+				yield break;
+			}
+
 			VerifyXMinMax(xMin, xMax);
 
 			if(!reverseX)

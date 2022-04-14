@@ -94,6 +94,10 @@ namespace DataTypes.Core
 			return IsClampedX(x) && IsClampedY(y);
 		}
 
+		/// <summary>
+		/// Checks if the specified <c>xMin</c> and <c>xMax</c> are valid column indices 
+		/// and if they are ordered correctly to prevent infinite loops when incrementing between them.
+		/// </summary>
 		protected void VerifyXMinMax(int xMin, int xMax)
 		{
 			if(!IsClampedX(xMin))
@@ -110,6 +114,10 @@ namespace DataTypes.Core
 			}
 		}
 
+		/// <summary>
+		/// Checks if the specified <c>yMin</c> and <c>yMax</c> are valid row indices 
+		/// and if they are ordered correctly to prevent infinite loops when incrementing between them.
+		/// </summary>
 		protected void VerifyYMinMax(int yMin, int yMax)
 		{
 			if(!IsClampedY(yMin))
@@ -126,6 +134,9 @@ namespace DataTypes.Core
 			}
 		}
 
+		/// <summary>
+		/// Checks if the specified <c>x</c> is a valid column index.
+		/// </summary>
 		protected void VerifyX(int x)
 		{
 			if(!IsClampedX(x))
@@ -134,6 +145,9 @@ namespace DataTypes.Core
 			}
 		}
 
+		/// <summary>
+		/// Checks if the specified <c>y</c> is a valid row index.
+		/// </summary>
 		protected void VerifyY(int y)
 		{
 			if(!IsClampedY(y))

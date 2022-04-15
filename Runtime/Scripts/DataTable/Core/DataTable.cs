@@ -53,6 +53,8 @@ namespace DataTypes.Core
 		/// </summary>
 		public int YMax
 		{ get { return Height - Int.One; } }
+
+		public abstract List<string> Headers { get; set; }
 		#endregion
 
 		#region Constructors

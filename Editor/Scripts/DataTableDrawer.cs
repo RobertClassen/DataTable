@@ -4,8 +4,10 @@ namespace DataTypes
 	using System.Collections;
 	using System.Collections.Generic;
 	using Core;
-	using UnityEditor;
 	using DeepReflection.Editor;
+	using MicroScopes;
+	using MicroScopes.Editor;
+	using UnityEditor;
 	using UnityEngine;
 	using VectorMath;
 
@@ -14,6 +16,7 @@ namespace DataTypes
 	public class DataTableDrawer : PropertyDrawer
 	{
 		#region Constants
+		private const string HeadersFieldName = "headers";
 		private const string RowsFieldName = "rows";
 		private const string CellsFieldName = "cells";
 		private const string Null = null;
@@ -39,7 +42,7 @@ namespace DataTypes
 		#region Methods
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
 		{
-			using(new EditorGUI.PropertyScope(position, label, property))
+			using(new PropertyScope(position, label, property))
 			{
 				GUI.Box(position, Null);
 
@@ -50,19 +53,30 @@ namespace DataTypes
 				}
 
 				SerializedProperty rows = property.FindPropertyRelative(RowsFieldName);
-				int yMax = rows.arraySize;
-				int lineCount = yMax + NameLineCount + HeaderLineCount;
+				int rowCount = rows.arraySize;
+				int lineCount = property.isExpanded ? NameLineCount + HeaderLineCount + rowCount : NameLineCount;
 
-				Rect nameRect = position.GetRow(0, lineCount);
-				EditorGUI.LabelField(nameRect, label);
+				Rect titleRect = position.GetRow(0, lineCount, 0f);
+				DrawTitle(titleRect, property, label, dataTable.Width, dataTable.Height);
+				if(!property.isExpanded)
+				{
+					return;
+				}
+
+				lineCount = NameLineCount + HeaderLineCount + rowCount;
 
 				Rect headerRect = position.GetRow(1, lineCount);
-				DrawHeaders(headerRect.Indent(2), dataTable.Width);
+				SerializedProperty headers = property.FindPropertyRelative(HeadersFieldName);
+				if(headers.arraySize != dataTable.Width)
+				{
+					headers.arraySize = dataTable.Width;
+				}
+				DrawHeaders(headerRect, headers);
 
 				CustomCellDrawerAttribute customCellDrawer = attribute as CustomCellDrawerAttribute;
 				Action<Rect, SerializedProperty, Action<int, int>, Vector2Int> drawCell = customCellDrawer != null 
 					? customCellDrawer.DrawCell : (Action<Rect, SerializedProperty, Action<int, int>, Vector2Int>)DrawCell;
-				for(int y = 0; y < yMax; y++)
+				for(int y = 0; y < rowCount; y++)
 				{
 					Rect rowRect = position.GetRow(y + NameLineCount + HeaderLineCount, lineCount);
 					EditorGUI.LabelField(rowRect, y.ToString());
@@ -71,11 +85,30 @@ namespace DataTypes
 			}
 		}
 
-		private void DrawHeaders(Rect rect, int width)
+		private void DrawTitle(Rect rect, SerializedProperty property, GUIContent label, int width, int height)
 		{
-			for(int x = 0; x < width; x++)
+			Rect nameRect = rect.Expand(0f, -10f, 0f, 0f);
+			//EditorGUI.DrawRect(nameRect, Color.yellow);
+			label.text = string.Format("{0} ({1}x{2})", label.text, width, height);
+			bool isExpanded = EditorGUI.Foldout(nameRect, property.isExpanded, label, true);
+			if(isExpanded != property.isExpanded)
 			{
-				EditorGUI.LabelField(rect.GetColumn(x, width), x.ToString());
+				property.isExpanded = isExpanded;
+			}
+		}
+
+		private void DrawHeaders(Rect rect, SerializedProperty headers)
+		{
+			EditorGUI.DrawRect(rect, Color.grey);
+			using(new GUIColorScope(GUI.color * (EditorGUIUtility.isProSkin ? 1.75f : 0.75f)))
+			{
+				rect = rect.Indent(2);
+				int width = headers.arraySize;
+				for(int x = 0; x < width; x++)
+				{
+					//EditorGUI.LabelField(rect.GetColumn(x, width), x.ToString());
+					EditorGUI.PropertyField(rect.GetColumn(x, width), headers.GetArrayElementAtIndex(x), GUIContent.none);
+				}
 			}
 		}
 
@@ -119,6 +152,10 @@ namespace DataTypes
 
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
+			if(!property.isExpanded)
+			{
+				return NameLineHeight;
+			}
 			SerializedProperty rows = property.FindPropertyRelative(RowsFieldName);
 			return NameLineHeight + HeaderLineHeight + rows.arraySize * SingleLineHeight;
 		}

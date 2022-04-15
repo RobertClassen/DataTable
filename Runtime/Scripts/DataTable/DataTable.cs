@@ -18,6 +18,8 @@ namespace DataTypes
 		#region Fields
 		[SerializeField]
 		protected List<Row> rows = new List<Row>();
+		[SerializeField]
+		protected List<string> headers = new List<string>();
 		#endregion
 
 		#region Properties
@@ -52,6 +54,12 @@ namespace DataTypes
 		/// </summary>
 		public override int Height
 		{ get { return rows != null ? rows.Count : YMin; } }
+
+		public override List<string> Headers
+		{
+			get { return headers; }
+			set { headers = value; }
+		}
 		#endregion
 
 		#region Constructors

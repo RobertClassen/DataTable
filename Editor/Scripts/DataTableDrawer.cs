@@ -21,11 +21,12 @@ namespace DataTypes
 		private const string CellsFieldName = "cells";
 		private const string Null = null;
 
-		private const int NameLineCount = 1;
+		private const int TitleLineCount = 1;
 		private const int HeaderLineCount = 1;
+		private const int RowButtonsColumnCount = 2;
+		private const int ColumnButtonsLineCount = 1;
+		private const int ColumnButtonsColumnCount = 2;
 		private static readonly float SingleLineHeight = EditorGUIUtility.singleLineHeight;
-		private static readonly float NameLineHeight = SingleLineHeight;
-		private static readonly float HeaderLineHeight = SingleLineHeight;
 
 		private static readonly HashSet<Type> InlineTypes = new HashSet<Type> { 
 			typeof(List<Color>), 
@@ -54,7 +55,7 @@ namespace DataTypes
 
 				SerializedProperty rows = property.FindPropertyRelative(RowsFieldName);
 				int rowCount = rows.arraySize;
-				int lineCount = property.isExpanded ? NameLineCount + HeaderLineCount + rowCount : NameLineCount;
+				int lineCount = GetLineCount(property, rowCount);
 
 				Rect titleRect = position.GetRow(0, lineCount, 0f);
 				DrawTitle(titleRect, property, label, dataTable.Width, dataTable.Height);
@@ -63,7 +64,7 @@ namespace DataTypes
 					return;
 				}
 
-				lineCount = NameLineCount + HeaderLineCount + rowCount;
+				lineCount = GetLineCount(property, rowCount);
 
 				Rect headerRect = position.GetRow(1, lineCount);
 				SerializedProperty headers = property.FindPropertyRelative(HeadersFieldName);
@@ -78,11 +79,18 @@ namespace DataTypes
 					? customCellDrawer.DrawCell : (Action<Rect, SerializedProperty, Action<int, int>, Vector2Int>)DrawCell;
 				for(int y = 0; y < rowCount; y++)
 				{
-					Rect rowRect = position.GetRow(y + NameLineCount + HeaderLineCount, lineCount);
+					Rect rowRect = position.GetRow(y + TitleLineCount + HeaderLineCount, lineCount);
 					EditorGUI.LabelField(rowRect, y.ToString());
-					DrawRow(rowRect.Indent(2), rows.GetArrayElementAtIndex(y), drawCell, dataTable, y);
+					DrawRow(rowRect, rows.GetArrayElementAtIndex(y), drawCell, dataTable, y);
 				}
+
+				DrawColumnButtons(position.GetRow(TitleLineCount + HeaderLineCount + rowCount, lineCount), dataTable.Width);
 			}
+		}
+
+		private int GetLineCount(SerializedProperty property, int rowCount)
+		{
+			return property.isExpanded ? TitleLineCount + HeaderLineCount + rowCount + ColumnButtonsLineCount : TitleLineCount;
 		}
 
 		private void DrawTitle(Rect rect, SerializedProperty property, GUIContent label, int width, int height)
@@ -102,7 +110,7 @@ namespace DataTypes
 			EditorGUI.DrawRect(rect, Color.grey);
 			using(new GUIColorScope(GUI.color * (EditorGUIUtility.isProSkin ? 1.75f : 0.75f)))
 			{
-				rect = rect.Indent(2);
+				rect = rect.Indent(2).Expand(0f, -RowButtonsColumnCount * SingleLineHeight, 0f, 0f);
 				int width = headers.arraySize;
 				for(int x = 0; x < width; x++)
 				{
@@ -122,17 +130,19 @@ namespace DataTypes
 				return;
 			}
 
-			int xMax = cells.arraySize;
+			int width = cells.arraySize;
 			if(type == null)
 			{
 				type = cells.GetArrayElementAtIndex(0).GetFullType();
 				isInlineType = InlineTypes.Contains(type);
 			}
 
-			for(int x = 0; x < xMax; x++)
+			Rect cellsRect = rect.Indent(2).Expand(0f, -RowButtonsColumnCount * SingleLineHeight, 0f, 0f);
+			for(int x = 0; x < width; x++)
 			{
-				drawCell(rect.GetColumn(x, xMax), cells.GetArrayElementAtIndex(x), dataTable.NotifyCellChangeListeners, new Vector2Int(x, y));
+				drawCell(cellsRect.GetColumn(x, width), cells.GetArrayElementAtIndex(x), dataTable.NotifyCellChangeListeners, new Vector2Int(x, y));
 			}
+			DrawRowButtons(rect);
 		}
 
 		private void DrawCell(Rect rect, SerializedProperty cell, Action<int, int> dataTable, Vector2Int coordinate)
@@ -150,14 +160,48 @@ namespace DataTypes
 			}
 		}
 
+		private void DrawRowButtons(Rect rect)
+		{
+			rect = rect.AddXMin(rect.width - RowButtonsColumnCount * SingleLineHeight);
+			Rect removeRect = rect.GetColumn(0, RowButtonsColumnCount);
+			if(GUI.Button(removeRect, "-"))
+			{
+				//TODO: remove
+			}
+			Rect addRect = rect.GetColumn(1, RowButtonsColumnCount);
+			if(GUI.Button(addRect, "+"))
+			{
+				//TODO: insert
+			}
+		}
+
+		private void DrawColumnButtons(Rect rect, int columnCount)
+		{
+			rect = rect.Indent(2).Expand(0f, -RowButtonsColumnCount * SingleLineHeight, 0f, 0f);
+			for(int x = 0; x < columnCount; x++)
+			{
+				Rect columnRect = rect.GetColumn(x, columnCount);
+				Rect removeRect = columnRect.GetColumn(0, ColumnButtonsColumnCount);
+				if(GUI.Button(removeRect, "-"))
+				{
+					//TODO: remove
+				}
+				Rect addRect = columnRect.GetColumn(1, ColumnButtonsColumnCount);
+				if(GUI.Button(addRect, "+"))
+				{
+					//TODO: insert
+				}
+			}
+		}
+
 		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
 			if(!property.isExpanded)
 			{
-				return NameLineHeight;
+				return TitleLineCount * SingleLineHeight;
 			}
 			SerializedProperty rows = property.FindPropertyRelative(RowsFieldName);
-			return NameLineHeight + HeaderLineHeight + rows.arraySize * SingleLineHeight;
+			return (TitleLineCount + HeaderLineCount + rows.arraySize + ColumnButtonsLineCount) * SingleLineHeight;
 		}
 		#endregion
 	}

@@ -13,8 +13,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"E D C B A" + "\n" +
-				"9 8 7 6 5" + "\n" +
+				"E D C B A" + NewLine +
+				"9 8 7 6 5" + NewLine +
 				"4 3 2 1 0";
 
 			table.Reverse();
@@ -28,8 +28,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"A 1 2 3 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"A 1 2 3 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"0 B C D E";
 
 			table.ReverseColumn(0);
@@ -43,8 +43,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"A B C D E" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"A B C D E" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"0 1 2 3 4";
 
 			table.ReverseColumns();
@@ -58,8 +58,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"4 3 2 1 0" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"4 3 2 1 0" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.ReverseRow(0);
@@ -73,8 +73,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"4 3 2 1 0" + "\n" +
-				"9 8 7 6 5" + "\n" +
+				"4 3 2 1 0" + NewLine +
+				"9 8 7 6 5" + NewLine +
 				"E D C B A";
 
 			table.ReverseRows();

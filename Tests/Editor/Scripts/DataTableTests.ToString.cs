@@ -13,14 +13,14 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedDefault = 
-				"0\t1\t2\t3\t4" + "\n" +
-				"5\t6\t7\t8\t9" + "\n" +
+				"0\t1\t2\t3\t4" + NewLine +
+				"5\t6\t7\t8\t9" + NewLine +
 				"A\tB\tC\tD\tE";
 			Assert.AreEqual(expectedDefault, table.ToString());
 
 			const string expectedWithSpace = 
-				"0 1 2 3 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"0 1 2 3 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
 		}
@@ -31,8 +31,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"_ _ _ _ _" + "\n" +
-				"_ _ _ _ _" + "\n" +
+				"_ _ _ _ _" + NewLine +
+				"_ _ _ _ _" + NewLine +
 				"_ _ _ _ _";
 
 			table.Clear();

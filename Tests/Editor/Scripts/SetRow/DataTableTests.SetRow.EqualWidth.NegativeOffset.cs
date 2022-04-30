@@ -13,8 +13,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"G H I J 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"G H I J 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.SetRow(0, new []{ "F", "G", "H", "I", "J" }, -1);
@@ -28,8 +28,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"I J 2 3 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"I J 2 3 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.SetRow(0, new []{ "F", "G", "H", "I", "J" }, -3);
@@ -43,8 +43,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"0 1 2 3 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"0 1 2 3 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.SetRow(0, new []{ "F", "G", "H", "I", "J" }, -5);
@@ -58,8 +58,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"0 1 2 3 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"0 1 2 3 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.SetRow(0, new []{ "F", "G", "H", "I", "J" }, -7);

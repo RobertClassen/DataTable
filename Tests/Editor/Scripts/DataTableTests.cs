@@ -7,6 +7,7 @@ namespace DataTypes
 
 	public partial class DataTableTests
 	{
+		private const string NewLine = "\n";
 		private static readonly char[] hex = {
 			'0', '1', '2', '3', '4', 
 			'5', '6', '7', '8', '9', 
@@ -42,8 +43,8 @@ namespace DataTypes
 			Assert.AreEqual(15, table.Capacity);
 
 			const string expectedWithSpace = 
-				"0 1 2 3 4" + "\n" +
-				"5 6 7 8 9" + "\n" +
+				"0 1 2 3 4" + NewLine +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
 		}

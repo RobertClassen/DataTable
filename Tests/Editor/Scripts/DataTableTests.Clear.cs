@@ -13,8 +13,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"_ _ _ _ _" + "\n" +
-				"_ _ _ _ _" + "\n" +
+				"_ _ _ _ _" + NewLine +
+				"_ _ _ _ _" + NewLine +
 				"_ _ _ _ _";
 
 			table.Clear();
@@ -28,8 +28,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"_ _ 2 3 4" + "\n" +
-				"_ _ 7 8 9" + "\n" +
+				"_ _ 2 3 4" + NewLine +
+				"_ _ 7 8 9" + NewLine +
 				"_ _ C D E";
 
 			table.ClearColumns(0, 1);
@@ -43,8 +43,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"_ _ 2 3 4" + "\n" +
-				"_ _ 7 8 9" + "\n" +
+				"_ _ 2 3 4" + NewLine +
+				"_ _ 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.ClearColumns(0, 1, 0, 1);
@@ -58,8 +58,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"_ _ _ _ _" + "\n" +
-				"_ _ _ _ _" + "\n" +
+				"_ _ _ _ _" + NewLine +
+				"_ _ _ _ _" + NewLine +
 				"A B C D E";
 
 			table.ClearRows(0, 1);
@@ -73,8 +73,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"_ _ 2 3 4" + "\n" +
-				"_ _ 7 8 9" + "\n" +
+				"_ _ 2 3 4" + NewLine +
+				"_ _ 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.ClearRows(0, 1, 0, 1);

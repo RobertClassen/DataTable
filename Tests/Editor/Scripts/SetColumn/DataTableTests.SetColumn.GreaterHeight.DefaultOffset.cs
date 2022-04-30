@@ -13,10 +13,10 @@ namespace DataTypes
 			DataTable<string> table = Create5x3().Flip();
 
 			const string expectedWithSpace = 
-				"F 5 A" + "\n" +
-				"G 6 B" + "\n" +
-				"H 7 C" + "\n" +
-				"I 8 D" + "\n" +
+				"F 5 A" + NewLine +
+				"G 6 B" + NewLine +
+				"H 7 C" + NewLine +
+				"I 8 D" + NewLine +
 				"J 9 E";
 
 			table.SetColumn(0, new []{ "F", "G", "H", "I", "J", "K" });

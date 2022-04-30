@@ -14,8 +14,8 @@ namespace DataTypes
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
 			const string expectedWithSpace = 
-				"1 2 3 4 _" + "\n" +
-				"6 7 8 9 _" + "\n" +
+				"1 2 3 4 _" + NewLine +
+				"6 7 8 9 _" + NewLine +
 				"B C D E _";
 
 			table.CopyColumnsTo(1, 4, result, -1);
@@ -30,8 +30,8 @@ namespace DataTypes
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
 			const string expectedWithSpace = 
-				"2 3 4 _ _" + "\n" +
-				"7 8 9 _ _" + "\n" +
+				"2 3 4 _ _" + NewLine +
+				"7 8 9 _ _" + NewLine +
 				"C D E _ _";
 
 			table.CopyColumnsTo(1, 4, result, -2);
@@ -46,8 +46,8 @@ namespace DataTypes
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
 			const string expectedWithSpace = 
-				"_ _ _ _ _" + "\n" +
-				"_ _ _ _ _" + "\n" +
+				"_ _ _ _ _" + NewLine +
+				"_ _ _ _ _" + NewLine +
 				"_ _ _ _ _";
 
 			table.CopyColumnsTo(1, 4, result, -5);

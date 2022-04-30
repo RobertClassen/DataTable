@@ -13,8 +13,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"1 2 3 4" + "\n" +
-				"6 7 8 9" + "\n" +
+				"1 2 3 4" + NewLine +
+				"6 7 8 9" + NewLine +
 				"B C D E";
 
 			table.RemoveColumn(0);
@@ -28,8 +28,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"2 3 4" + "\n" +
-				"7 8 9" + "\n" +
+				"2 3 4" + NewLine +
+				"7 8 9" + NewLine +
 				"C D E";
 
 			table.RemoveColumns(0, 1);
@@ -43,8 +43,8 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"" + "\n" +
-				"" + "\n" +
+				"" + NewLine +
+				"" + NewLine +
 				"";
 
 			table.RemoveColumns(0, 4);
@@ -58,7 +58,7 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 
 			const string expectedWithSpace = 
-				"5 6 7 8 9" + "\n" +
+				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.RemoveRow(0);

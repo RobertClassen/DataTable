@@ -7,7 +7,7 @@ namespace DataTypes
 	public partial class DataTable<T>
 	{
 		/// <summary>
-		/// Resets the values of all <c>cells</c> to their <c>default(T)</c> value.
+		/// Resets all <c>cells</c> to their <c>default(T)</c> value.
 		/// </summary>
 		/// <returns>The same instance.</returns>
 		public DataTable<T> Clear()
@@ -16,7 +16,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in column <c>x</c> to their <c>default(T)</c> value 
+		/// Resets the <c>cells</c> in column <c>x</c> to their <c>default(T)</c> value 
 		/// (for rows <c>yMin</c> to <see cref ="YMax"/>).
 		/// </summary>
 		/// <returns>The same instance.</returns>
@@ -26,7 +26,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in column <c>x</c> to their <c>default(T)</c> value 
+		/// Resets the <c>cells</c> in column <c>x</c> to their <c>default(T)</c> value 
 		/// (for rows <c>yMin</c> to <c>yMax</c>).
 		/// </summary>
 		/// <returns>The same instance.</returns>
@@ -36,7 +36,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in columns <c>xMin</c> to <c>xMax</c> 
+		/// Resets the <c>cells</c> in columns <c>xMin</c> to <c>xMax</c> 
 		/// to their <c>default(T)</c> value 
 		/// (for rows <c>yMin</c> to <see cref ="YMax"/>).
 		/// </summary>
@@ -47,7 +47,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in columns <c>xMin</c> to <c>xMax</c> 
+		/// Resets the <c>cells</c> in columns <c>xMin</c> to <c>xMax</c> 
 		/// to their <c>default(T)</c> value 
 		/// (for rows <c>yMin</c> to <c>yMax</c>).
 		/// </summary>
@@ -58,7 +58,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in row <c>y</c> to their <c>default(T)</c> value 
+		/// Resets the <c>cells</c> in row <c>y</c> to their <c>default(T)</c> value 
 		/// (for rows <c>xMin</c> to <see cref ="XMax"/>).
 		/// </summary>
 		/// <returns>The same instance.</returns>
@@ -68,7 +68,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in row <c>y</c> to their <c>default(T)</c> value 
+		/// Resets the <c>cells</c> in row <c>y</c> to their <c>default(T)</c> value 
 		/// (for rows <c>xMin</c> to <c>xMax</c>).
 		/// </summary>
 		/// <returns>The same instance.</returns>
@@ -78,7 +78,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in rows <c>yMin</c> to <c>yMax</c> 
+		/// Resets the <c>cells</c> in rows <c>yMin</c> to <c>yMax</c> 
 		/// to their <c>default(T)</c> value 
 		/// (for rows <c>xMin</c> to <see cref ="XMax"/>).
 		/// </summary>
@@ -89,7 +89,7 @@ namespace DataTypes
 		}
 
 		/// <summary>
-		/// Resets the values of the <c>cells</c> in rows <c>yMin</c> to <c>yMax</c> 
+		/// Resets the <c>cells</c> in rows <c>yMin</c> to <c>yMax</c> 
 		/// to their <c>default(T)</c> value 
 		/// (for rows <c>xMin</c> to <c>xMax</c>).
 		/// </summary>

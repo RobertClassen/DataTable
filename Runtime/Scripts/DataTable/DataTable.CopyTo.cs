@@ -26,6 +26,12 @@ namespace DataTypes
 		}
 
 		/// <returns>The <c>destination</c> instance.</returns>
+		public DataTable<T> CopyColumnsTo(int xMin, int xMax, DataTable<T> destination, int xOffset, int yMin = YMin)
+		{
+			return CopyColumnsTo(xMin, xMax, destination, xOffset, yMin, YMax);
+		}
+
+		/// <returns>The <c>destination</c> instance.</returns>
 		public DataTable<T> CopyColumnsTo(int xMin, int xMax, DataTable<T> destination, int xOffset, int yMin, int yMax)
 		{
 			return CopyTo(xMin, yMin, xMax, yMax, destination, xOffset, Int.Zero);
@@ -47,6 +53,12 @@ namespace DataTypes
 		public DataTable<T> CopyRowsTo(int yMin, int yMax, DataTable<T> destination, int yOffset)
 		{
 			return CopyRowsTo(yMin, yMax, destination, yOffset, XMin, XMax);
+		}
+
+		/// <returns>The <c>destination</c> instance.</returns>
+		public DataTable<T> CopyRowsTo(int yMin, int yMax, DataTable<T> destination, int yOffset, int xMin = XMin)
+		{
+			return CopyRowsTo(yMin, yMax, destination, yOffset, xMin, XMax);
 		}
 
 		/// <returns>The <c>destination</c> instance.</returns>

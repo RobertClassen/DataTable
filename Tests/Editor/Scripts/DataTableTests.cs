@@ -42,11 +42,16 @@ namespace DataTypes
 
 			Assert.AreEqual(15, table.Capacity);
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 3 4" + NewLine +
 				"5 6 7 8 9" + NewLine +
 				"A B C D E";
-			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
+			Assert.AreEqual(expected, table.ToString(" "));
+		}
+
+		private static void AreEqual<T>(string expected, DataTable<T> table)
+		{
+			Assert.AreEqual(expected, table.ToString(" ", "_"));
 		}
 	}
 }

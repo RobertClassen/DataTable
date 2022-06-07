@@ -13,14 +13,14 @@ namespace DataTypes
 			DataTable<string> table = Create5x3();
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 3 4" + NewLine +
 				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.CopyTo(0, 0, 4, 2, result, 0, 0);
 
-			Assert.AreEqual(expectedWithSpace, result.ToString(" ", "_"));
+			Assert.AreEqual(expected, result.ToString(" ", "_"));
 		}
 	}
 }

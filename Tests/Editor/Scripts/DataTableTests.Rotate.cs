@@ -12,7 +12,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"4 9 E" + NewLine +
 				"3 8 D" + NewLine +
 				"2 7 C" + NewLine +
@@ -21,7 +21,7 @@ namespace DataTypes
 
 			table.RotateLeft();
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
+			Assert.AreEqual(expected, table.ToString(" "));
 		}
 
 		[Test]
@@ -29,7 +29,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"A 5 0" + NewLine +
 				"B 6 1" + NewLine +
 				"C 7 2" + NewLine +
@@ -38,7 +38,7 @@ namespace DataTypes
 
 			table.RotateRight();
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" "));
+			Assert.AreEqual(expected, table.ToString(" "));
 		}
 	}
 }

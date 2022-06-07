@@ -13,7 +13,7 @@ namespace DataTypes
 			DataTable<string> table = Create5x3().Flip();
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"_ _ _" + NewLine +
 				"_ _ _" + NewLine +
 				"_ _ _" + NewLine +
@@ -22,7 +22,7 @@ namespace DataTypes
 
 			table.CopyRowTo(0, result, -1);
 
-			Assert.AreEqual(expectedWithSpace, result.ToString(" ", "_"));
+			Assert.AreEqual(expected, result.ToString(" ", "_"));
 		}
 
 		[Test]
@@ -31,7 +31,7 @@ namespace DataTypes
 			DataTable<string> table = Create5x3().Flip();
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"1 6 B" + NewLine +
 				"_ _ _" + NewLine +
 				"_ _ _" + NewLine +
@@ -40,7 +40,7 @@ namespace DataTypes
 
 			table.CopyRowTo(1, result, -1);
 
-			Assert.AreEqual(expectedWithSpace, result.ToString(" ", "_"));
+			Assert.AreEqual(expected, result.ToString(" ", "_"));
 		}
 
 		[Test]
@@ -49,7 +49,7 @@ namespace DataTypes
 			DataTable<string> table = Create5x3().Flip();
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"_ _ _" + NewLine +
 				"_ _ _" + NewLine +
 				"_ _ _" + NewLine +
@@ -58,7 +58,7 @@ namespace DataTypes
 
 			table.CopyRowTo(4, result, -1);
 
-			Assert.AreEqual(expectedWithSpace, result.ToString(" ", "_"));
+			Assert.AreEqual(expected, result.ToString(" ", "_"));
 		}
 
 		[Test]
@@ -67,7 +67,7 @@ namespace DataTypes
 			DataTable<string> table = Create5x3().Flip();
 			DataTable<string> result = new DataTable<string>(table.Width, table.Height);
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"_ _ _" + NewLine +
 				"0 5 A" + NewLine +
 				"_ _ _" + NewLine +
@@ -76,7 +76,7 @@ namespace DataTypes
 
 			table.CopyRowTo(0, result, 1);
 
-			Assert.AreEqual(expectedWithSpace, result.ToString(" ", "_"));
+			Assert.AreEqual(expected, result.ToString(" ", "_"));
 		}
 	}
 }

@@ -12,7 +12,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3().Flip();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 5 A" + NewLine +
 				"F 6 B" + NewLine +
 				"G 7 C" + NewLine +
@@ -21,7 +21,7 @@ namespace DataTypes
 
 			table.SetColumn(0, new []{ "F", "G", "H", "I" }, 1);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -29,7 +29,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3().Flip();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 5 A" + NewLine +
 				"1 6 B" + NewLine +
 				"2 7 C" + NewLine +
@@ -38,7 +38,7 @@ namespace DataTypes
 
 			table.SetColumn(0, new []{ "F", "G", "H", "I" }, 3);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -46,7 +46,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3().Flip();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 5 A" + NewLine +
 				"1 6 B" + NewLine +
 				"2 7 C" + NewLine +
@@ -55,7 +55,7 @@ namespace DataTypes
 
 			table.SetColumn(0, new []{ "F", "G", "H", "I" }, 5);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -63,7 +63,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3().Flip();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 5 A" + NewLine +
 				"1 6 B" + NewLine +
 				"2 7 C" + NewLine +
@@ -72,7 +72,7 @@ namespace DataTypes
 
 			table.SetColumn(0, new []{ "F", "G", "H", "I" }, 7);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 	}
 }

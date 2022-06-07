@@ -12,14 +12,14 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 0 2 3 4" + NewLine +
 				"5 5 7 8 9" + NewLine +
 				"A A C D E";
 
 			table.CopyColumn(0, 1);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -27,14 +27,14 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 0 4" + NewLine +
 				"5 6 7 5 9" + NewLine +
 				"A B C A E";
 
 			table.CopyColumn(0, 3);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -42,14 +42,14 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 3 4" + NewLine +
 				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.CopyColumn(0, 5);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -57,14 +57,14 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 2 4" + NewLine +
 				"5 6 7 7 9" + NewLine +
 				"A B C C E";
 
 			table.CopyColumn(2, 1);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -72,14 +72,14 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 3 2" + NewLine +
 				"5 6 7 8 7" + NewLine +
 				"A B C D C";
 
 			table.CopyColumn(2, 2);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 
 		[Test]
@@ -87,14 +87,14 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"0 1 2 3 4" + NewLine +
 				"5 6 7 8 9" + NewLine +
 				"A B C D E";
 
 			table.CopyColumn(4, 1);
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 	}
 }

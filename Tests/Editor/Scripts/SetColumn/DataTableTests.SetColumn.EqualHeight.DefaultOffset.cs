@@ -12,7 +12,7 @@ namespace DataTypes
 		{
 			DataTable<string> table = Create5x3().Flip();
 
-			const string expectedWithSpace = 
+			const string expected = 
 				"F 5 A" + NewLine +
 				"G 6 B" + NewLine +
 				"H 7 C" + NewLine +
@@ -21,7 +21,7 @@ namespace DataTypes
 			
 			table.SetColumn(0, new []{ "F", "G", "H", "I", "J" });
 
-			Assert.AreEqual(expectedWithSpace, table.ToString(" ", "_"));
+			AreEqual(expected, table);
 		}
 	}
 }
